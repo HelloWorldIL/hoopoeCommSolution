@@ -30,7 +30,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 8)</value>
+      <value>(8, 4)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>top_block</value>
+      <value>ax25_bpsk_tx</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -82,11 +82,38 @@
     </param>
     <param>
       <key>title</key>
-      <value></value>
+      <value>AX25 BPSK TX</value>
     </param>
     <param>
       <key>placement</key>
       <value>(0,0)</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(208, 84)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>baud_rate</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>9600</value>
     </param>
   </block>
   <block>
@@ -113,7 +140,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(16, 148)</value>
+      <value>(8, 148)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -152,7 +179,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(112, 76)</value>
+      <value>(104, 84)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -179,7 +206,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 76)</value>
+      <value>(8, 84)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -222,7 +249,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(456, 92)</value>
+      <value>(336, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -250,7 +277,7 @@
     </param>
     <param>
       <key>samp_rate</key>
-      <value>samp_rate</value>
+      <value>rf_samp_rate</value>
     </param>
     <param>
       <key>waveform</key>
@@ -289,14 +316,20 @@
     </param>
   </block>
   <block>
-    <key>blocks_multiply_xx</key>
+    <key>blocks_multiply_const_vxx</key>
     <param>
       <key>alias</key>
       <value></value>
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>Multiply const to prevent overmodulation
+
+values should be between 1 and -1</value>
+    </param>
+    <param>
+      <key>const</key>
+      <value>0.5</value>
     </param>
     <param>
       <key>affinity</key>
@@ -308,7 +341,54 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(648, 192)</value>
+      <value>(656, 124)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_multiply_const_vxx_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_multiply_xx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value>Multiply by 12 Khz to "Move" signal from LO</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(520, 168)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -340,65 +420,6 @@
     </param>
   </block>
   <block>
-    <key>blocks_socket_pdu</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(16, 372)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>host</key>
-      <value></value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_socket_pdu_0</value>
-    </param>
-    <param>
-      <key>mtu</key>
-      <value>10000</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>port</key>
-      <value>52001</value>
-    </param>
-    <param>
-      <key>tcp_no_delay</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>"TCP_SERVER"</value>
-    </param>
-  </block>
-  <block>
     <key>blocks_unpacked_to_packed_xx</key>
     <param>
       <key>bits_per_chunk</key>
@@ -410,7 +431,13 @@
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>Pack bits.
+Example:
+
+Input
+00000001 00000000 -&gt;
+Output
+10</value>
     </param>
     <param>
       <key>affinity</key>
@@ -426,7 +453,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(800, 388)</value>
+      <value>(456, 420)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -461,7 +488,7 @@
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>Perform PSK modulation (BPSK Default)</value>
     </param>
     <param>
       <key>constellation</key>
@@ -509,277 +536,11 @@
     </param>
     <param>
       <key>samples_per_symbol</key>
-      <value>5</value>
+      <value>int(samp_rate/baud_rate)</value>
     </param>
     <param>
       <key>verbose</key>
       <value>False</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_descrambler_bb</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(808, 460)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>digital_descrambler_bb_0_0</value>
-    </param>
-    <param>
-      <key>len</key>
-      <value>16</value>
-    </param>
-    <param>
-      <key>mask</key>
-      <value>0x21</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_hdlc_framer_pb</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>frame_tag_name</key>
-      <value>packet_len</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(336, 396)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>digital_hdlc_framer_pb_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_scrambler_bb</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(672, 380)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>digital_scrambler_bb_0</value>
-    </param>
-    <param>
-      <key>len</key>
-      <value>16</value>
-    </param>
-    <param>
-      <key>mask</key>
-      <value>0x21</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>epy_block</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_io_cache</key>
-      <value>('ax25_protocol_encode', 'ax25_protocol_encode', [('dcall', "'CQ'"), ('scall', "''"), ('shift_call', 'True'), ('control', '3')], [('in', 'message', 1)], [('out', 'message', 1)], '\n    docstring for block ax25_protocol_encode\n    ', [])</value>
-    </param>
-    <param>
-      <key>_source_code</key>
-      <value>#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
-# Copyright 2017 &lt;+YOU OR YOUR COMPANY+&gt;.
-#
-# This is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3, or (at your option)
-# any later version.
-#
-# This software is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this software; see the file COPYING.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street,
-# Boston, MA 02110-1301, USA.
-#
-
-import numpy as np
-from gnuradio import gr
-import pmt
-
-class ax25_protocol_encode(gr.basic_block):
-    """
-    docstring for block ax25_protocol_encode
-    """
-    def __init__(self, dcall="CQ", scall="", shift_call=True, control=0x03):
-        gr.basic_block.__init__(self,
-            name="ax25_protocol_encode",
-            in_sig=None,
-            out_sig=None)
-
-        self.shift_callsign = shift_call
-        if self.shift_callsign:
-            print "Callsign shifting enabled"
-        self.message_port_register_out(pmt.intern("out"))
-        self.message_port_register_in(pmt.intern("in"))
-        self.set_msg_handler(pmt.intern("in"), self.handle_message)
-        self.control_byte = control
-
-        self.dest_callsign = self.left_shift_call(dcall.ljust(6))
-        self.source_callsign = self.left_shift_call(scall.ljust(6))
-        print self.dest_callsign
-
-    def handle_message(self, msg):
-        payload = np.concatenate((self.dest_callsign,
-            np.array([0x60], dtype=np.uint8),
-            self.source_callsign,
-            np.array([0x68, self.control_byte, 0xF0], dtype=np.uint8),
-            np.fromstring(str(bytearray(pmt.to_python(msg)[1]))[:-1], dtype=np.uint8)))
-
-        self.message_port_pub(pmt.intern("out"), pmt.cons(pmt.to_pmt(len(payload)),
-            pmt.to_pmt(payload)))
-
-    def left_shift_call(self, call):
-        tmp = np.fromstring(call, dtype=np.uint8)
-        if self.shift_callsign:
-            for char in np.nditer(tmp, op_flags=['readwrite']):
-                char[...] = (char &lt;&lt; 1)
-
-        return tmp
-
-    def forecast(self, noutput_items, ninput_items_required):
-        return 0
-
-    def general_work(self, input_items, output_items):
-        return len(output_items[0])
-</value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>control</key>
-      <value>3</value>
-    </param>
-    <param>
-      <key>dcall</key>
-      <value>'ALL-0'</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(152, 372)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>epy_block_0</value>
-    </param>
-    <param>
-      <key>scall</key>
-      <value>'4Z7IDO'</value>
-    </param>
-    <param>
-      <key>shift_call</key>
-      <value>True</value>
     </param>
   </block>
   <block>
@@ -842,7 +603,7 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>SDR Sink</value>
     </param>
     <param>
       <key>affinity</key>
@@ -862,7 +623,7 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(784, 116)</value>
+      <value>(896, 36)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -897,7 +658,7 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>Interpolate to RF sample rate</value>
     </param>
     <param>
       <key>affinity</key>
@@ -917,7 +678,7 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(448, 212)</value>
+      <value>(320, 212)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -949,30 +710,38 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
   </block>
   <block>
-    <key>satellites_hdlc_deframer</key>
+    <key>satnogs_ax25_encoder_mb</key>
     <param>
       <key>alias</key>
       <value></value>
     </param>
     <param>
-      <key>check_fcs</key>
+      <key>comment</key>
+      <value>Encode Data to AX.25 Packet</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>dest_addr</key>
+      <value></value>
+    </param>
+    <param>
+      <key>dest_ssid</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
+      <key>scramble</key>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1080, 468)</value>
+      <value>(248, 380)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -980,50 +749,7 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
     <param>
       <key>id</key>
-      <value>satellites_hdlc_deframer_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>max_length</key>
-      <value>10000</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>satellites_nrzi_decode</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(944, 480)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>satellites_nrzi_decode_0</value>
+      <value>satnogs_ax25_encoder_mb_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1033,16 +759,32 @@ class ax25_protocol_encode(gr.basic_block):
       <key>minoutbuf</key>
       <value>0</value>
     </param>
+    <param>
+      <key>postamble_len</key>
+      <value>16</value>
+    </param>
+    <param>
+      <key>preamble_len</key>
+      <value>16</value>
+    </param>
+    <param>
+      <key>src_addr</key>
+      <value></value>
+    </param>
+    <param>
+      <key>src_ssid</key>
+      <value>0</value>
+    </param>
   </block>
   <block>
-    <key>satellites_nrzi_encode</key>
+    <key>satnogs_udp_msg_source</key>
     <param>
       <key>alias</key>
       <value></value>
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>Get Data from UDP (nc -u localhost port)</value>
     </param>
     <param>
       <key>affinity</key>
@@ -1054,7 +796,7 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(544, 400)</value>
+      <value>(8, 404)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1062,15 +804,31 @@ class ax25_protocol_encode(gr.basic_block):
     </param>
     <param>
       <key>id</key>
-      <value>satellites_nrzi_encode_0</value>
+      <value>satnogs_udp_msg_source_0</value>
+    </param>
+    <param>
+      <key>addr</key>
+      <value>"127.0.0.1"</value>
+    </param>
+    <param>
+      <key>mtu</key>
+      <value>1500</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
+      <key>msg_type</key>
+      <value>0</value>
+    </param>
+    <param>
       <key>minoutbuf</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>port</key>
+      <value>16886</value>
     </param>
   </block>
   <connection>
@@ -1080,16 +838,16 @@ class ax25_protocol_encode(gr.basic_block):
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_multiply_xx_0</source_block_id>
+    <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
     <sink_block_id>limesdr_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_socket_pdu_0</source_block_id>
-    <sink_block_id>epy_block_0</sink_block_id>
-    <source_key>pdus</source_key>
-    <sink_key>in</sink_key>
+    <source_block_id>blocks_multiply_xx_0</source_block_id>
+    <sink_block_id>blocks_multiply_const_vxx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_unpacked_to_packed_xx_0</source_block_id>
@@ -1104,57 +862,21 @@ class ax25_protocol_encode(gr.basic_block):
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>digital_descrambler_bb_0_0</source_block_id>
-    <sink_block_id>satellites_nrzi_decode_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_hdlc_framer_pb_0</source_block_id>
-    <sink_block_id>satellites_nrzi_encode_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_scrambler_bb_0</source_block_id>
-    <sink_block_id>blocks_unpacked_to_packed_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_scrambler_bb_0</source_block_id>
-    <sink_block_id>digital_descrambler_bb_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>epy_block_0</source_block_id>
-    <sink_block_id>digital_hdlc_framer_pb_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
     <source_block_id>rational_resampler_xxx_0</source_block_id>
     <sink_block_id>blocks_multiply_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>1</sink_key>
   </connection>
   <connection>
-    <source_block_id>satellites_hdlc_deframer_0</source_block_id>
-    <sink_block_id>blocks_message_debug_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>print_pdu</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>satellites_nrzi_decode_0</source_block_id>
-    <sink_block_id>satellites_hdlc_deframer_0</sink_block_id>
+    <source_block_id>satnogs_ax25_encoder_mb_0</source_block_id>
+    <sink_block_id>blocks_unpacked_to_packed_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>satellites_nrzi_encode_0</source_block_id>
-    <sink_block_id>digital_scrambler_bb_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
+    <source_block_id>satnogs_udp_msg_source_0</source_block_id>
+    <sink_block_id>satnogs_ax25_encoder_mb_0</sink_block_id>
+    <source_key>msg</source_key>
+    <sink_key>info</sink_key>
   </connection>
 </flow_graph>
