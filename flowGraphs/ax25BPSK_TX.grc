@@ -245,11 +245,11 @@
     </param>
     <param>
       <key>freq</key>
-      <value>12000</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(336, 100)</value>
+      <value>(328, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -635,7 +635,7 @@ Output
     </param>
     <param>
       <key>length_tag_name</key>
-      <value>packet_len</value>
+      <value></value>
     </param>
     <param>
       <key>oversample</key>
