@@ -12,15 +12,18 @@ from telnetlib import Telnet
 
 
 args = ArgumentParser()
-args.add_argument("--config", type=str, help="Configuration file path", default=os.environ['HOME']+"/.hslCommSolution/config.ini")
+args.add_argument("--config", type=str, help="Configuration file path",
+                  default=os.environ['HOME']+"/.hslCommSolution/config.ini")
 
 config = ConfigParser()
 config.read(args.parse_args().config)
 
 sat = load.tle(config['TLE']['url'])[config['TLE']['sat']]
-station = Topos(config['Ground Station']['lat'], config['Ground Station']['lon'], elevation_m=int(config['Ground Station']['alt']))
+station = Topos(config['Ground Station']['lat'], config['Ground Station']
+                ['lon'], elevation_m=int(config['Ground Station']['alt']))
 
 F0 = int(config['Doppler']['freq'])
+
 
 def dopplerCalc(sat, station, t, F0):
     t1 = load.timescale().utc(t.utc_datetime()+timedelta(seconds=1))
@@ -33,17 +36,24 @@ def dopplerCalc(sat, station, t, F0):
     change = (velocity_magnitude-velocity_magnitude1)*1000
     return int((F0 * (C + change) / (C)))
 
+def altAzCalc(sat, station, t):
+    diff = (sat - station).at(t)
+    return (diff.altaz())
 
-def sendDoppler(tn ,doppler):
+def sendDoppler(tn, doppler):
     try:
         tn.write(("F " + str(doppler)).encode("ascii"))
     except socket.error:
         print("Connection refused, is the host running?")
 
-tn = Telnet("localhost", config['Doppler']['port'])
+
+# tn = Telnet("localhost", config['Doppler']['port'])
 while True:
     t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
+    el, az, dist = altAzCalc(sat, station, t)
     doppler = dopplerCalc(sat, station, t, F0)
-    print(doppler)
-    sendDoppler(tn, doppler)
-    time.sleep(0.1)
+    print("Azimuth: " + str(int(az._degrees)))
+    print("Elevation: " + str(int(el.degrees)))
+    print("Frequency: " + str(doppler))
+    # sendDoppler(tn, doppler)
+    time.sleep(0.2)
