@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import ephem
 import socket
@@ -22,7 +22,7 @@ def main():
     parser.add_argument("--debug", type=bool, help="Debug? Prints Errors and data (Default=False)", default=False)
 
     # Variables
-    C = 300000000.
+    C = 299792458.
     F0 = parser.parse_args().freq
     LATITUDE = parser.parse_args().lat
     LONGITUDE = parser.parse_args().lon
@@ -58,18 +58,20 @@ def main():
     closed = False
     try:
         tn = telnetlib.Telnet("localhost", PORT)
-        if DEBUG: print "Started doppler script for " + SATNAME + " Sending commands to port " + str(PORT) + " \n"
+        if DEBUG: 
+            print ("Started doppler script for " + SATNAME + " Sending commands to port " + str(PORT) + " \n")
         closed = True
         while True:
-            if DEBUG: print dopplercalc()
+            if DEBUG: 
+                print (dopplercalc())
             tn.write("F " + str(dopplercalc()))
             time.sleep(1)
     except (socket.error):
         if DEBUG:
             if not closed:
-                print "Connection refused, is the host running?"
+                print ("Connection refused, is the host running?")
             else:
-                print "Connection closed."
+                print ("Connection closed.")
         
 
 # Catch keyboard interrupt
