@@ -6,7 +6,10 @@ sudo apt install -y $DEPENDENCIES
 pip install git+https://github.com/gnuradio/pybombs.git
 
 pip3 install numpy
+pip3 install scipy
 pip3 install skyfield
+
+pip install scipy
 
 sudo apt install -y gpredict
 
@@ -20,6 +23,10 @@ pybombs install gr-limesdr
 pybombs install gr-osmosdr
 pybombs install gqrx
 
+# Copy default config file to default config directory at ~/.hslCommSolution
+mkdir ~/.hslCommSolution
+cp config.ini ~/.hslCommSolution
+
 # gr-satnogs install
 cd ~/prefix/src
 git clone https://gitlab.com/librespacefoundation/satnogs/gr-satnogs.git
@@ -29,3 +36,8 @@ cd build
 cmake -DCMAKE_INSTALL_PREFIX=~/prefix ..
 make
 sudo make install
+cd
+
+cd ~/prefix/src/gr-satellites
+./compile_hierarchical.sh
+cd
