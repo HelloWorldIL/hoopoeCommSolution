@@ -55,7 +55,7 @@ def dopplerCalc(sat, station, t, F0):
 
 def altAzCalc(sat, station, t):
     diff = (sat - station).at(t)
-    return (diff.altaz().astype(int))
+    return (diff.altaz())
 
 
 def sendDoppler(tn, doppler):
