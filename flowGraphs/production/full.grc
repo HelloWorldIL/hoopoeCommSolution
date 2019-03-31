@@ -38,7 +38,7 @@
     </param>
     <param>
       <key>generate_options</key>
-      <value>no_gui</value>
+      <value>qt_gui</value>
     </param>
     <param>
       <key>hier_block_src_path</key>
@@ -101,7 +101,61 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 116)</value>
+      <value>(568, 12)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>freq_correction</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>-2000</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(704, 12)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rx_offset</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>50e3</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(8, 132)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -163,7 +217,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(456, 308)</value>
+      <value>(736, 228)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -199,6 +253,65 @@
     </param>
   </block>
   <block>
+    <key>freq_xlating_fir_filter_xxx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>center_freq</key>
+      <value>rx_offset</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(248, 316)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>freq_xlating_fir_filter_xxx_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate_rx</value>
+    </param>
+    <param>
+      <key>taps</key>
+      <value>[1]</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>ccc</value>
+    </param>
+  </block>
+  <block>
     <key>import</key>
     <param>
       <key>alias</key>
@@ -214,7 +327,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 68)</value>
+      <value>(8, 84)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1197,7 +1310,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(664, 268)</value>
+      <value>(928, 188)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1304,7 +1417,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>bb_gain0</key>
-      <value>satnogs.handle_rx_bb_gain(rx_sdr_device, satnogs.not_set_rx_bb_gain)</value>
+      <value>0</value>
     </param>
     <param>
       <key>bw0</key>
@@ -1320,7 +1433,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>freq0</key>
-      <value>rx_freq</value>
+      <value>rx_freq+freq_correction-rx_offset</value>
     </param>
     <param>
       <key>gain_mode0</key>
@@ -1328,7 +1441,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>if_gain0</key>
-      <value>satnogs.handle_rx_if_gain(rx_sdr_device, satnogs.not_set_rx_if_gain)</value>
+      <value>0</value>
     </param>
     <param>
       <key>iq_balance_mode0</key>
@@ -1336,7 +1449,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>gain0</key>
-      <value>satnogs.handle_rx_rf_gain(rx_sdr_device, 40)</value>
+      <value>rf_gain</value>
     </param>
     <param>
       <key>ant10</key>
@@ -2692,7 +2805,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>sample_rate</key>
-      <value>satnogs.handle_samp_rate_rx(rx_sdr_device, samp_rate_rx)</value>
+      <value>samp_rate_rx</value>
     </param>
     <param>
       <key>sync</key>
@@ -2747,6 +2860,152 @@ we shift the LO a little further</value>
     </param>
   </block>
   <block>
+    <key>qtgui_sink_x</key>
+    <param>
+      <key>bw</key>
+      <value>48000</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>fc</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>freqchangevar</key>
+      <value>None</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>fftsize</key>
+      <value>1024</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(760, 428)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>qtgui_sink_x_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>name</key>
+      <value>""</value>
+    </param>
+    <param>
+      <key>plotconst</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>plotfreq</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>plottime</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>plotwaterfall</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>showports</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>showrf</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>rate</key>
+      <value>10</value>
+    </param>
+    <param>
+      <key>wintype</key>
+      <value>firdes.WIN_BLACKMAN_hARRIS</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(440, 100)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rf_gain</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>eng_float</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>20</value>
+    </param>
+  </block>
+  <block>
     <key>parameter</key>
     <param>
       <key>alias</key>
@@ -2790,7 +3049,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>value</key>
-      <value>436.4e6</value>
+      <value>437.4e6</value>
     </param>
   </block>
   <block>
@@ -2809,7 +3068,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(176, 12)</value>
+      <value>(176, 4)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2843,6 +3102,10 @@ we shift the LO a little further</value>
   <block>
     <key>satnogs_bpsk_ax25</key>
     <param>
+      <key>baudrate</key>
+      <value>9600</value>
+    </param>
+    <param>
       <key>alias</key>
       <value></value>
     </param>
@@ -2859,8 +3122,12 @@ we shift the LO a little further</value>
       <value>1</value>
     </param>
     <param>
+      <key>excess_bw</key>
+      <value>0.5</value>
+    </param>
+    <param>
       <key>_coordinate</key>
-      <value>(264, 220)</value>
+      <value>(496, 236)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2871,32 +3138,32 @@ we shift the LO a little further</value>
       <value>satnogs_bpsk_ax25_0</value>
     </param>
     <param>
-      <key>baudrate</key>
-      <value>9600</value>
-    </param>
-    <param>
-      <key>excess_bw</key>
-      <value>0.5</value>
-    </param>
-    <param>
-      <key>input_samp_rate</key>
-      <value>samp_rate_rx</value>
+      <key>maxoutbuf</key>
+      <value>0</value>
     </param>
     <param>
       <key>max_cfo</key>
-      <value>1000.0</value>
+      <value>5000</value>
     </param>
     <param>
-      <key>rx_sdr_device</key>
-      <value>"usrpb200"</value>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
     <param>
-      <key>samp_rate_rx</key>
-      <value>samp_rate_rx</value>
+      <key>samp_rate</key>
+      <value>2.4e6</value>
+    </param>
+    <param>
+      <key>address</key>
+      <value>"4x4hsc-0"</value>
     </param>
   </block>
   <block>
     <key>satnogs_bpsk_ax25</key>
+    <param>
+      <key>baudrate</key>
+      <value>1200</value>
+    </param>
     <param>
       <key>alias</key>
       <value></value>
@@ -2914,8 +3181,12 @@ we shift the LO a little further</value>
       <value>1</value>
     </param>
     <param>
+      <key>excess_bw</key>
+      <value>0.5</value>
+    </param>
+    <param>
       <key>_coordinate</key>
-      <value>(264, 356)</value>
+      <value>(496, 364)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2926,28 +3197,24 @@ we shift the LO a little further</value>
       <value>satnogs_bpsk_ax25_0_0</value>
     </param>
     <param>
-      <key>baudrate</key>
-      <value>1200</value>
-    </param>
-    <param>
-      <key>excess_bw</key>
-      <value>0.5</value>
-    </param>
-    <param>
-      <key>input_samp_rate</key>
-      <value>samp_rate_rx</value>
+      <key>maxoutbuf</key>
+      <value>0</value>
     </param>
     <param>
       <key>max_cfo</key>
-      <value>1000.0</value>
+      <value>5000</value>
     </param>
     <param>
-      <key>rx_sdr_device</key>
-      <value>"usrpb200"</value>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
     <param>
-      <key>samp_rate_rx</key>
-      <value>samp_rate_rx</value>
+      <key>samp_rate</key>
+      <value>2.4e6</value>
+    </param>
+    <param>
+      <key>address</key>
+      <value>"4x4hsc-0"</value>
     </param>
   </block>
   <block>
@@ -3051,14 +3318,26 @@ we shift the LO a little further</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>osmosdr_source_0</source_block_id>
+    <source_block_id>freq_xlating_fir_filter_xxx_0</source_block_id>
     <sink_block_id>satnogs_bpsk_ax25_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>osmosdr_source_0</source_block_id>
+    <source_block_id>freq_xlating_fir_filter_xxx_0</source_block_id>
     <sink_block_id>satnogs_bpsk_ax25_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>osmosdr_source_0</source_block_id>
+    <sink_block_id>freq_xlating_fir_filter_xxx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satnogs_bpsk_ax25_0_0</source_block_id>
+    <sink_block_id>qtgui_sink_x_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>

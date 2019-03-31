@@ -82,7 +82,7 @@
     </param>
     <param>
       <key>title</key>
-      <value>satnogs_bpsk_ax25</value>
+      <value>BPSK AX.25 Decode</value>
     </param>
     <param>
       <key>placement</key>
@@ -101,7 +101,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(662, 722)</value>
+      <value>(776, 772)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -113,7 +113,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>96000</value>
+      <value>48000</value>
     </param>
   </block>
   <block>
@@ -140,7 +140,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(208, 724)</value>
+      <value>(208, 732)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -179,7 +179,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(184, 804)</value>
+      <value>(168, 804)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -245,7 +245,54 @@
     </param>
     <param>
       <key>value</key>
-      <value>5</value>
+      <value>4</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(200, 20)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>address</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Senders's Address</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>"4x4hsc-0"</value>
     </param>
   </block>
   <block>
@@ -327,7 +374,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(584, 812)</value>
+      <value>(416, 732)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -339,7 +386,7 @@
     </param>
     <param>
       <key>label</key>
-      <value></value>
+      <value>Baud Rate</value>
     </param>
     <param>
       <key>short_id</key>
@@ -355,7 +402,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>9600</value>
+      <value>1200</value>
     </param>
   </block>
   <block>
@@ -399,6 +446,37 @@
     <param>
       <key>vlen</key>
       <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_message_debug</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(0, 496)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_message_debug_0</value>
     </param>
   </block>
   <block>
@@ -486,7 +564,7 @@ to move the audio
     </param>
     <param>
       <key>maxoutbuf</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>fmax</key>
@@ -525,7 +603,7 @@ to move the audio
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(736, 320)</value>
+      <value>(744, 320)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -554,6 +632,57 @@ to move the audio
     <param>
       <key>use_snr</key>
       <value>True</value>
+    </param>
+  </block>
+  <block>
+    <key>digital_descrambler_bb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(896, 524)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>digital_descrambler_bb_0</value>
+    </param>
+    <param>
+      <key>len</key>
+      <value>16</value>
+    </param>
+    <param>
+      <key>mask</key>
+      <value>0x21</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>seed</key>
+      <value>0</value>
     </param>
   </block>
   <block>
@@ -600,7 +729,7 @@ to move the audio
     </param>
     <param>
       <key>maxoutbuf</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>max_dev</key>
@@ -644,7 +773,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(728, 804)</value>
+      <value>(552, 732)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -656,7 +785,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>label</key>
-      <value></value>
+      <value>Excess Bandwidth</value>
     </param>
     <param>
       <key>short_id</key>
@@ -704,53 +833,6 @@ Used in filtering.</value>
     <param>
       <key>import</key>
       <value>import math</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(16, 652)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>input_samp_rate</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value></value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>hide</key>
-      <value>none</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2.4e6</value>
     </param>
   </block>
   <block>
@@ -922,7 +1004,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(264, 796)</value>
+      <value>(240, 804)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -934,7 +1016,7 @@ reception performance.</value>
     </param>
     <param>
       <key>label</key>
-      <value></value>
+      <value>Maximum Carrier Offset</value>
     </param>
     <param>
       <key>short_id</key>
@@ -950,7 +1032,93 @@ reception performance.</value>
     </param>
     <param>
       <key>value</key>
-      <value>1000.0</value>
+      <value>5000</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(40, 612)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>message</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>pad_sink</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(752, 244)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>pad_sink_2</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>complex</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>out</value>
+    </param>
+    <param>
+      <key>num_streams</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>optional</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -1040,7 +1208,7 @@ reception performance.</value>
     </param>
     <param>
       <key>rrate</key>
-      <value>audio_samp_rate/satnogs.handle_samp_rate_rx(rx_sdr_device, samp_rate_rx)</value>
+      <value>audio_samp_rate/samp_rate</value>
     </param>
     <param>
       <key>samp_delay</key>
@@ -1103,7 +1271,7 @@ reception performance.</value>
     </param>
     <param>
       <key>rrate</key>
-      <value>audio_samp_rate/satnogs.handle_samp_rate_rx(rx_sdr_device, samp_rate_rx)</value>
+      <value>1.0 * audio_samp_rate/samp_rate</value>
     </param>
     <param>
       <key>samp_delay</key>
@@ -1123,7 +1291,7 @@ reception performance.</value>
     </param>
   </block>
   <block>
-    <key>pfb_arb_resampler_xxx</key>
+    <key>rational_resampler_xxx</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -1137,12 +1305,20 @@ reception performance.</value>
       <value></value>
     </param>
     <param>
+      <key>decim</key>
+      <value>audio_samp_rate</value>
+    </param>
+    <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
+    </param>
+    <param>
+      <key>fbw</key>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(976, 340)</value>
+      <value>(1016, 340)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1150,31 +1326,19 @@ reception performance.</value>
     </param>
     <param>
       <key>id</key>
-      <value>pfb_arb_resampler_xxx_0_0_0</value>
+      <value>rational_resampler_xxx_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>sps*baudrate</value>
     </param>
     <param>
       <key>maxoutbuf</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>nfilts</key>
-      <value>32</value>
-    </param>
-    <param>
-      <key>rrate</key>
-      <value>(sps*baudrate)/satnogs.handle_samp_rate_rx(rx_sdr_device, samp_rate_rx)</value>
-    </param>
-    <param>
-      <key>samp_delay</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>atten</key>
-      <value>80</value>
     </param>
     <param>
       <key>taps</key>
@@ -1182,7 +1346,7 @@ reception performance.</value>
     </param>
     <param>
       <key>type</key>
-      <value>ccf</value>
+      <value>ccc</value>
     </param>
   </block>
   <block>
@@ -1248,7 +1412,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 724)</value>
+      <value>(0, 724)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1256,11 +1420,11 @@ reception performance.</value>
     </param>
     <param>
       <key>id</key>
-      <value>rx_sdr_device</value>
+      <value>samp_rate</value>
     </param>
     <param>
       <key>label</key>
-      <value></value>
+      <value>Sample Rate</value>
     </param>
     <param>
       <key>short_id</key>
@@ -1272,54 +1436,7 @@ reception performance.</value>
     </param>
     <param>
       <key>type</key>
-      <value>string</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>usrpb200</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
       <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(392, 724)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>samp_rate_rx</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value></value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>hide</key>
-      <value>none</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>eng_float</value>
     </param>
     <param>
       <key>value</key>
@@ -1327,7 +1444,11 @@ reception performance.</value>
     </param>
   </block>
   <block>
-    <key>satnogs_ax25_decoder_bm</key>
+    <key>satellites_check_address</key>
+    <param>
+      <key>address</key>
+      <value>address</value>
+    </param>
     <param>
       <key>alias</key>
       <value></value>
@@ -1341,16 +1462,16 @@ reception performance.</value>
       <value></value>
     </param>
     <param>
+      <key>direction</key>
+      <value>"from"</value>
+    </param>
+    <param>
       <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
-      <key>descrambling</key>
-      <value>True</value>
-    </param>
-    <param>
       <key>_coordinate</key>
-      <value>(920, 500)</value>
+      <value>(440, 568)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1358,38 +1479,26 @@ reception performance.</value>
     </param>
     <param>
       <key>id</key>
-      <value>satnogs_ax25_decoder_bm_0</value>
+      <value>satellites_check_address_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>max_frame_len</key>
-      <value>1024</value>
-    </param>
-    <param>
       <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>promisc</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>addr</key>
-      <value>'GND'</value>
-    </param>
-    <param>
-      <key>ssid</key>
       <value>0</value>
     </param>
   </block>
   <block>
-    <key>satnogs_ax25_decoder_bm</key>
+    <key>satellites_hdlc_deframer</key>
     <param>
       <key>alias</key>
       <value></value>
+    </param>
+    <param>
+      <key>check_fcs</key>
+      <value>True</value>
     </param>
     <param>
       <key>comment</key>
@@ -1401,94 +1510,164 @@ reception performance.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>descrambling</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(920, 612)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>satnogs_ax25_decoder_bm_0_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>max_frame_len</key>
-      <value>1024</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>promisc</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>addr</key>
-      <value>'GND'</value>
-    </param>
-    <param>
-      <key>ssid</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
-    <key>satnogs_multi_format_msg_sink</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>filename</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(648, 588)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>satnogs_multi_format_msg_sink_0</value>
-    </param>
-    <param>
-      <key>outstream</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>timestamp</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>format</key>
       <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(640, 532)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satellites_hdlc_deframer_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>max_length</key>
+      <value>10000</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>satellites_hdlc_deframer</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>check_fcs</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(640, 612)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satellites_hdlc_deframer_0_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>max_length</key>
+      <value>10000</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>satellites_nrzi_decode</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1088, 592)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satellites_nrzi_decode_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>satellites_print_timestamp</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>fmt</key>
+      <value>%Y-%m-%d %H:%M:%S</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(192, 564)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satellites_print_timestamp_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>count</key>
+      <value>True</value>
     </param>
   </block>
   <block>
@@ -1554,19 +1733,19 @@ reception performance.</value>
   </connection>
   <connection>
     <source_block_id>digital_constellation_receiver_cb_0</source_block_id>
-    <sink_block_id>satnogs_ax25_decoder_bm_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_constellation_receiver_cb_0</source_block_id>
-    <sink_block_id>satnogs_ax25_decoder_bm_0_0</sink_block_id>
+    <sink_block_id>satellites_nrzi_decode_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>digital_costas_loop_cc_0_0</source_block_id>
-    <sink_block_id>pfb_arb_resampler_xxx_0_0_0</sink_block_id>
+    <sink_block_id>rational_resampler_xxx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_descrambler_bb_0</source_block_id>
+    <sink_block_id>satellites_hdlc_deframer_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1579,6 +1758,12 @@ reception performance.</value>
   <connection>
     <source_block_id>low_pass_filter_0</source_block_id>
     <sink_block_id>digital_costas_loop_cc_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>low_pass_filter_0</source_block_id>
+    <sink_block_id>pad_sink_2</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1613,7 +1798,7 @@ reception performance.</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pfb_arb_resampler_xxx_0_0_0</source_block_id>
+    <source_block_id>rational_resampler_xxx_0</source_block_id>
     <sink_block_id>digital_pfb_clock_sync_xxx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
@@ -1625,15 +1810,45 @@ reception performance.</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>satnogs_ax25_decoder_bm_0</source_block_id>
-    <sink_block_id>satnogs_multi_format_msg_sink_0</sink_block_id>
-    <source_key>pdu</source_key>
+    <source_block_id>satellites_check_address_0</source_block_id>
+    <sink_block_id>satellites_print_timestamp_0</sink_block_id>
+    <source_key>ok</source_key>
     <sink_key>in</sink_key>
   </connection>
   <connection>
-    <source_block_id>satnogs_ax25_decoder_bm_0_0</source_block_id>
-    <sink_block_id>satnogs_multi_format_msg_sink_0</sink_block_id>
-    <source_key>pdu</source_key>
+    <source_block_id>satellites_hdlc_deframer_0</source_block_id>
+    <sink_block_id>satellites_check_address_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_hdlc_deframer_0_0</source_block_id>
+    <sink_block_id>satellites_check_address_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_nrzi_decode_0</source_block_id>
+    <sink_block_id>digital_descrambler_bb_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_nrzi_decode_0</source_block_id>
+    <sink_block_id>satellites_hdlc_deframer_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_print_timestamp_0</source_block_id>
+    <sink_block_id>blocks_message_debug_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>print_pdu</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satellites_print_timestamp_0</source_block_id>
+    <sink_block_id>pad_sink_0</sink_block_id>
+    <source_key>out</source_key>
     <sink_key>in</sink_key>
   </connection>
 </flow_graph>
