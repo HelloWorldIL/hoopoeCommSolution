@@ -85,36 +85,68 @@ class RotatorController(object):
 class PredictSolution(object):
     def __init__(self, config=os.path.expanduser('~')+'/.hslCommSolution/config.ini'):
         self.__getConfig(config)
+        self.sat = load.tle(self.tleURL)[self.satName]
+        self.station = Topos(self.stationlat, self.stationlon,
+                             elevation_m=self.stationAlt)
+        self.dopplerControllerRX = DopplerController(self.rxPort)
+        if self.txPort is not None:
+            self.dopplerControllerTX = DopplerController(self.txPort)
+        else:
+            self.dopplerControllerTX = None
+        self.rotatorController = RotatorController(
+            self.rotatorModel, self.rotatorDevice)
+        self.isConnected = False
+
+        self.predict = Predict(self.sat, self.station)
 
     def __getConfig(self, configLocation):
         config = ConfigParser()
         config.read(configLocation)
 
         # Station prams
-        self.stationlat = config['Ground Station']['lat']
-        self.stationlon = config['Ground Station']['lon']
-        self.stationAlt = int(config['Ground Station']['alt'])
+        self.stationlat = config.get('Ground Station', 'lat')
+        self.stationlon = config.get('Ground Station', 'lon')
+        self.stationAlt = config.getint('Ground Station', 'alt')
 
         # TLE and sat params
-        self.tleURL = config['TLE']['url']
-        self.satName = config['TLE']['sat']
-        self.txFreq = int(config['Doppler']['txFreq'])
-        self.rxFreq = int(config['Doppler']['rxFreq'])
+        self.tleURL = config.get('TLE', 'url')
+        self.satName = config.get('TLE', 'sat')
+        self.txFreq = config.getint('Doppler', 'txFreq', fallback=None)
+        self.rxFreq = config.getint('Doppler', 'rxFreq')
 
         # Network params
-        self.rxPort = config['Doppler']['rxPort']
-        self.txPort = config['Doppler']['txPort']
+        self.rxPort = config.getint('Doppler', 'rxPort')
+        self.txPort = config.getint('Doppler', 'txPort')
         # Rotator params
-        self.rotatorModel = config['Rotator']['model']
-        self.rotatorDevice = config['Rotator']['device']
+        self.rotatorModel = config.get('Rotator', 'model')
+        self.rotatorDevice = config.get('Rotator', 'device')
 
-sat = load.tle('https://celestrak.com/NORAD/elements/active.txt')['FMN-1']
-station = Topos('32.1150 N', '34.7820 E')
+    def Connect(self):
+        self.dopplerControllerRX.Connect()
+        if self.dopplerControllerTX is not None:
+            self.dopplerControllerTX.Connect()
+        self.rotatorController.Connect()
+        self.isConnected = True
 
-t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
+    def sendDoppler(self, t):
+        self.dopplerControllerRX.Write(
+            self.predict.getDopplerFreq(self.rxFreq, t))
+        if self.dopplerControllerTX is not None:
+            self.dopplerControllerTX.Write(
+                self.predict.getDopplerFreq(self.txFreq, t)
+            )
+        self.rotatorController.Send(
+            self.predict.getAzEl(t)[0],
+            self.predict.getAzEl(t)[1]
+        )
 
-predict = Predict(sat, station)
-print(predict.getAzEl(t))
-
+    def Start(self):
+        if not self.isConnected:
+            self.Connect()
+        while True:
+            t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
+            self.sendDoppler(t)
+            time.sleep(1)
 
 solution = PredictSolution()
+solution.Start()
