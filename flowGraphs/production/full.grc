@@ -113,7 +113,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>-2000</value>
+      <value>-1000</value>
     </param>
   </block>
   <block>
@@ -200,6 +200,10 @@
   <block>
     <key>ax25_afsk</key>
     <param>
+      <key>baud_rate</key>
+      <value>1.2e3</value>
+    </param>
+    <param>
       <key>alias</key>
       <value></value>
     </param>
@@ -217,7 +221,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(736, 228)</value>
+      <value>(896, 52)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -228,6 +232,10 @@
       <value>ax25_afsk_0</value>
     </param>
     <param>
+      <key>tx_offset</key>
+      <value>tx_offset</value>
+    </param>
+    <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
@@ -236,20 +244,119 @@
       <value>0</value>
     </param>
     <param>
-      <key>baud_rate</key>
-      <value>1.2e3</value>
+      <key>port</key>
+      <value>52002</value>
+    </param>
+    <param>
+      <key>rf_samp_rate</key>
+      <value>2.4e6</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_socket_pdu</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(976, 316)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>host</key>
+      <value>"localhost"</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_socket_pdu_0</value>
+    </param>
+    <param>
+      <key>mtu</key>
+      <value>10000</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
     </param>
     <param>
       <key>port</key>
       <value>52001</value>
     </param>
     <param>
-      <key>rf_samp_rate</key>
-      <value>2.4e6</value>
+      <key>tcp_no_delay</key>
+      <value>False</value>
     </param>
     <param>
-      <key>tx_offset</key>
-      <value>tx_offset</value>
+      <key>type</key>
+      <value>"TCP_SERVER"</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value>To avoid the SDR carrier at the DC
+we shift the LO a little further</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(528, 100)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>callsign</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Sender's Callsign</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>string</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>"4X4HSL-1"</value>
     </param>
   </block>
   <block>
@@ -280,7 +387,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(248, 316)</value>
+      <value>(248, 348)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1310,7 +1417,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(928, 188)</value>
+      <value>(1080, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2709,7 +2816,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(0, 236)</value>
+      <value>(0, 268)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2860,105 +2967,6 @@ we shift the LO a little further</value>
     </param>
   </block>
   <block>
-    <key>qtgui_sink_x</key>
-    <param>
-      <key>bw</key>
-      <value>48000</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>fc</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>freqchangevar</key>
-      <value>None</value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>fftsize</key>
-      <value>1024</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(760, 428)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>qtgui_sink_x_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>name</key>
-      <value>""</value>
-    </param>
-    <param>
-      <key>plotconst</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>plotfreq</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>plottime</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>plotwaterfall</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>showports</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>showrf</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>rate</key>
-      <value>10</value>
-    </param>
-    <param>
-      <key>wintype</key>
-      <value>firdes.WIN_BLACKMAN_hARRIS</value>
-    </param>
-  </block>
-  <block>
     <key>parameter</key>
     <param>
       <key>alias</key>
@@ -3049,7 +3057,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>value</key>
-      <value>437.4e6</value>
+      <value>436.4e6</value>
     </param>
   </block>
   <block>
@@ -3127,7 +3135,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(496, 236)</value>
+      <value>(728, 268)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3155,7 +3163,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>address</key>
-      <value>"4x4hsc-0"</value>
+      <value>callsign</value>
     </param>
   </block>
   <block>
@@ -3186,7 +3194,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(496, 364)</value>
+      <value>(728, 380)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3214,7 +3222,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>address</key>
-      <value>"4x4hsc-0"</value>
+      <value>callsign</value>
     </param>
   </block>
   <block>
@@ -3336,9 +3344,15 @@ we shift the LO a little further</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>satnogs_bpsk_ax25_0</source_block_id>
+    <sink_block_id>blocks_socket_pdu_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>pdus</sink_key>
+  </connection>
+  <connection>
     <source_block_id>satnogs_bpsk_ax25_0_0</source_block_id>
-    <sink_block_id>qtgui_sink_x_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
+    <sink_block_id>blocks_socket_pdu_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>pdus</sink_key>
   </connection>
 </flow_graph>
