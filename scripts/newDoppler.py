@@ -84,7 +84,7 @@ def connectRotator(model, device):
     proc.communicate()
     if proc.returncode != 0:
         print("Error connecting to rotator")
-    return proc
+    return subprocess.Popen(f'rotctl --model={model} --rot-file={device}', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
 def main():
@@ -103,15 +103,26 @@ def main():
 
 
 def sendRotator(proc, az, el):
-    toSend = f'P {az} {el}'
+    toSend = f'P {az} {el}\n'
     if int(el) > 0:
-        return proc.communicate(input=toSend.encode())
-    print("Satellite is not over the horizon!")
+        proc.stdin.write(toSend.encode())
+        proc.stdin.flush()
+    else:
+        print("Satellite is not over the horizon!")
+
+t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
+proc = connectRotator(rotatorModel, rotatorDevice)
 
 
-print(f'rotctl --model={rotatorModel} --rot-file={rotatorDevice}')
-
-rotctlProc = connectRotator(rotatorModel, rotatorDevice)
-
-#out, err = sendRotator(rotctlProc, str(5), str(10))
-rotctlProc.kill()
+while True:
+    t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
+    alt, az, dist = altAzCalc(sat, station, t)
+    print("Azimuth: " + str(az.degrees))
+    print("Elevation: " + str(alt.degrees))
+    print(dopplerCalc(sat, station, t, F0))
+    sendRotator(proc, str(int(az.degrees)), str(int(alt.degrees)))
+    time.sleep(2)
+# proc = subprocess.Popen(f'rotctl --model={rotatorModel} --rot-file={rotatorDevice}', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+# toSend = f'P 30 20'
+# proc.stdin.write("P 40 40\n".encode())
+# proc.stdin.flush()
