@@ -12,13 +12,12 @@ from telnetlib import Telnet
 import subprocess
 
 
-class SatPredictUtills(object):
-    def __init__(self, sat, station, F0):
+class Predict(object):
+    def __init__(self, sat, station):
         self.sat = sat
         self.station = station
-        self.F0 = F0
 
-    def getDopplerFreq(self, t):
+    def getDopplerFreq(self, freq, t):
         C = 299792458
         t1 = load.timescale().utc(t.utc_datetime()+timedelta(seconds=1))
 
@@ -29,130 +28,125 @@ class SatPredictUtills(object):
         range2 = diff1.distance().km
         change = (range1 - range2)*1000
 
-        return int((self.F0 * (C + change) / C))
-    
-    def getAzEl(self, parameter_list):
+        return int((freq * (C + change) / C))
+
+    def getAzEl(self, t):
         diff = (self.sat - self.station).at(t)
         return (diff.altaz()[1].degrees, diff.altaz()[0].degrees)
 
 
-def getConfig(configLocation=os.environ['HOME']+"/.hslCommSolution/config.ini"):
-    config = ConfigParser()
-    config.read(configLocation)
+class DopplerController(object):
+    def __init__(self, port):
+        self.port = port
+        self.connection = None
 
-    # Station prams
-    stationlat = config['Ground Station']['lat']
-    stationlon = config['Ground Station']['lon']
-    stationAlt = int(config['Ground Station']['alt'])
-
-    # TLE and sat params
-    tleURL = config['TLE']['url']
-    satName = config['TLE']['sat']
-    F0 = int(config['Doppler']['freq'])  # Center Frequency
-
-    # Network params
-    dopplerPort = config['Doppler']['port']
-    # Rotator params
-    rotatorModel = config['Rotator']['model']
-    rotatorDevice = config['Rotator']['device']
-
-    return {
-        "station": {
-            "stationLat": stationlat,
-            "stationLon": stationlon,
-            "stationAlt": stationAlt,
-        },
-        "satellite": {
-            "satName": satName,
-            "F0": F0,
-        },
-        "dopplerPort": dopplerPort,
-        "rotator": {
-            "model": rotatorModel,
-            "device": rotatorDevice,
-        },
-        "tleURL": tleURL,
-    }
-
-
-class SatPredict(object):
-    def __init__(self, configLocation=os.environ['HOME']+"/.hslCommSolution/config.ini"):
-        if os.path.isfile(configLocation):
-            self.__getConfig(configLocation=configLocation)
-            self.sat = load.tle(self.tleURL)[self.satName]
-            self.station = Topos(
-                self.stationlat, self.stationlon, elevation_m=self.stationAlt)
-            self.__satUtills = SatPredictUtills(
-                self.sat, self.station, self.F0)
-            self.dopplerConnection = None
-            self.rotatorProc = None
+    def Connect(self):
+        if self.connection is None:
+            self.connection = Telnet("localhost", self.port)
         else:
-            raise Exception("Config file not found")
+            print("Already connected")
 
-    def getDopplerFreq(self, t):
-        return self.__satUtills.getDopplerFreq(t)
+    def Write(self, freq):
+        toWrite = "F " + str(freq)
+        if self.connection is None:
+            self.Connect()
+        self.connection.write(toWrite.encode("ascii"))
 
-    def getAzEl(self, t):
-        return self.__satUtills.getAzEl(t)
 
-    def __connectDoppler(self):
-        self.dopplerConnection = Telnet("localhost", self.dopplerPort)
+class RotatorController(object):
+    def __init__(self, model, device):
+        self.model = model
+        self.device = device
+        self.proc = None
 
-    def sendDoppler(self, t):
-        toWrite = "F " + str(self.getDopplerFreq(t)) + "\n"
-        if self.dopplerConnection is None:
-            try:
-                self.__connectDoppler()
-            except socket.error:
-                print("Connection error, is the host running?")
-        try:
-            self.dopplerConnection.write(toWrite.encode("ascii"))
-        except socket.error:
-            print("Doppler Write Error, is the host running?")
-        except AttributeError:
-            pass
+    def Connect(self):
+        proc = subprocess.Popen(f'sudo rotctl --model={self.model} --rot-file={self.device}',
+                                shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc.communicate()
+        if proc.returncode is not 0:
+            raise Exception("Error connecting to rotator")
+        self.proc = subprocess.Popen(f'sudo rotctl --model={self.model} --rot-file={self.device}',
+                                     shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    def __getConfig(self, configLocation=False):
+    def Send(self, azimuth, elevation):
+        if self.proc is None:
+            self.Connect()
+        if elevation > 0:
+            toSend = f'P {str(azimuth)} {str(azimuth)}\n'
+            self.proc.stdin.write(toSend.encode())
+            self.proc.stdin.flush()
+        else:
+            print("Satellite is not over the horizon!")
+
+    def Close(self):
+        self.proc.communicate()
+
+
+class PredictSolution(object):
+    def __init__(self, config=os.path.expanduser('~')+'/.hslCommSolution/config.ini'):
+        self.__getConfig(config)
+        self.sat = load.tle(self.tleURL)[self.satName]
+        self.station = Topos(self.stationlat, self.stationlon,
+                             elevation_m=self.stationAlt)
+        self.dopplerControllerRX = DopplerController(self.rxPort)
+        if self.txPort is not None:
+            self.dopplerControllerTX = DopplerController(self.txPort)
+        else:
+            self.dopplerControllerTX = None
+        self.rotatorController = RotatorController(
+            self.rotatorModel, self.rotatorDevice)
+        self.isConnected = False
+
+        self.predict = Predict(self.sat, self.station)
+
+    def __getConfig(self, configLocation):
         config = ConfigParser()
         config.read(configLocation)
 
         # Station prams
-        self.stationlat = config['Ground Station']['lat']
-        self.stationlon = config['Ground Station']['lon']
-        self.stationAlt = int(config['Ground Station']['alt'])
+        self.stationlat = config.get('Ground Station', 'lat')
+        self.stationlon = config.get('Ground Station', 'lon')
+        self.stationAlt = config.getint('Ground Station', 'alt')
 
         # TLE and sat params
-        self.tleURL = config['TLE']['url']
-        self.satName = config['TLE']['sat']
-        self.F0 = int(config['Doppler']['freq'])  # Center Frequency
+        self.tleURL = config.get('TLE', 'url')
+        self.satName = config.get('TLE', 'sat')
+        self.txFreq = config.getint('Doppler', 'txFreq', fallback=None)
+        self.rxFreq = config.getint('Doppler', 'rxFreq')
 
         # Network params
-        self.dopplerPort = config['Doppler']['port']
+        self.rxPort = config.getint('Doppler', 'rxPort')
+        self.txPort = config.getint('Doppler', 'txPort')
         # Rotator params
-        self.rotatorModel = config['Rotator']['model']
-        self.rotatorDevice = config['Rotator']['device']
+        self.rotatorModel = config.get('Rotator', 'model')
+        self.rotatorDevice = config.get('Rotator', 'device')
 
-    def __connectRotator(self):
-        proc = subprocess.Popen('rotctl --model={self.rotatorModel} --rot-file={self.rotatorDevice}', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        proc.communicate()
-        if proc.returncode is not 0:
-            raise Exception("Error connecting to rotator")
-        self.rotatorProc = subprocess.Popen('rotctl --model={self.rotatorModel} --rot-file={self.rotatorDevice}', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    def Connect(self):
+        self.dopplerControllerRX.Connect()
+        if self.dopplerControllerTX is not None:
+            self.dopplerControllerTX.Connect()
+        self.rotatorController.Connect()
+        self.isConnected = True
 
-    def sendRotator(self, t):
-        if self.rotatorProc is None:
-            self.__connectRotator()
+    def sendDoppler(self, t):
+        self.dopplerControllerRX.Write(
+            self.predict.getDopplerFreq(self.rxFreq, t))
+        if self.dopplerControllerTX is not None:
+            self.dopplerControllerTX.Write(
+                self.predict.getDopplerFreq(self.txFreq, t)
+            )
+        self.rotatorController.Send(
+            self.predict.getAzEl(t)[0],
+            self.predict.getAzEl(t)[1]
+        )
 
-        azimuth, elevation = self.getAzEl(t)
-        if (elevation > 0):
-            toSend = f'P {azimuth} {elevation}\n'
-            self.rotatorProc.stdin.write(toSend.encode())
-            self.rotatorProc.stdin.flush()
-        else:
-            print("Satellite is not over the horizon")
+    def Start(self):
+        if not self.isConnected:
+            self.Connect()
+        while True:
+            t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
+            self.sendDoppler(t)
+            time.sleep(1)
 
-predict = SatPredict()
-while True:
-    t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
-    print(predict.getAzEl(t))
-    time.sleep(1)
+solution = PredictSolution()
+solution.Start()
