@@ -19,6 +19,7 @@ In the future, there will be a docker file and proper installation scrips to aut
 The GnuRadio flowgraphs were tested on GnuRadio installed using [PyBombs](https://github.com/gnuradio/pybombs)**
 To install GnuRadio using PyBombs, you first need to install PyBombs using pip.
 **The installation instructions are made for (Debian / Ubuntu)**
+
 **Installation from source takes a long time!**
 
 Install pip:
@@ -99,15 +100,15 @@ Tasks for the project
 
 ### Production
 - [x] Create a unified communication flowgraph
-- [] Create production and testing flowgraphs
+- [ ] Create production and testing flowgraphs
 - [x] Create flowgraph for LimeSDR
-- [] Create RX only flowgraph with osmocom I.E: RTL-SDR
-- [] Create flowgraph with osmocom for device support
+- [ ] Create RX only flowgraph with osmocom I.E: RTL-SDR
+- [ ] Create flowgraph with osmocom for device support
 
 ### Scripts
 - [x] Create Doppler Correction script
-- [] Create installation script
+- [ ] Create installation script
 
 ### General
-- [] Add documentation
-- [] Add DOCKERFILE
+- [ ] Add documentation
+- [ ] Add DOCKERFILE
