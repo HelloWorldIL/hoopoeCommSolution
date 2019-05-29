@@ -144,33 +144,6 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(8, 132)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>samp_rate_rx</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2.4e6</value>
-    </param>
-  </block>
-  <block>
     <key>blocks_socket_pdu</key>
     <param>
       <key>alias</key>
@@ -293,7 +266,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 204)</value>
+      <value>(0, 220)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -369,6 +342,53 @@ we shift the LO a little further</value>
     <param>
       <key>value</key>
       <value></value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(0, 316)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>doppler_port_rx</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Doppler Port RX</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>intx</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>7355</value>
     </param>
   </block>
   <block>
@@ -525,7 +545,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(232, 100)</value>
+      <value>(232, 140)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2927,7 +2947,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(112, 196)</value>
+      <value>(96, 220)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3021,7 +3041,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(128, 100)</value>
+      <value>(136, 132)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -3191,6 +3211,53 @@ we shift the LO a little further</value>
     <param>
       <key>value</key>
       <value>usrpb200</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(0, 140)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>samp_rate_rx</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Sample Rate RX</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>2.4e6</value>
     </param>
   </block>
   <block>
@@ -3410,7 +3477,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>port</key>
-      <value>7355</value>
+      <value>doppler_port_rx</value>
     </param>
     <param>
       <key>interval</key>
@@ -3433,7 +3500,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(376, 12)</value>
+      <value>(448, 20)</value>
     </param>
     <param>
       <key>_rotation</key>

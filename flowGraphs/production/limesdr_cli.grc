@@ -144,60 +144,6 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(8, 132)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>samp_rate_rx</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2.4e6</value>
-    </param>
-  </block>
-  <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(328, 100)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>samp_rate_tx</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>2.4e6</value>
-    </param>
-  </block>
-  <block>
     <key>ax25_afsk</key>
     <param>
       <key>alias</key>
@@ -217,7 +163,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(856, 68)</value>
+      <value>(776, 324)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -245,7 +191,7 @@
     </param>
     <param>
       <key>rf_samp_rate</key>
-      <value>2.4e6</value>
+      <value>samp_rate_tx</value>
     </param>
     <param>
       <key>tx_offset</key>
@@ -375,7 +321,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 204)</value>
+      <value>(8, 148)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -404,6 +350,100 @@ we shift the LO a little further</value>
     <param>
       <key>value</key>
       <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(304, 220)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>doppler_port_rx</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Doppler Port RX</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>intx</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>7355</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(304, 316)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>doppler_port_tx</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Doppler Port TX</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>intx</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>7356</value>
     </param>
   </block>
   <block>
@@ -576,7 +616,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1024, 4)</value>
+      <value>(1040, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -872,7 +912,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(440, 100)</value>
+      <value>(336, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -948,6 +988,100 @@ we shift the LO a little further</value>
     <param>
       <key>value</key>
       <value>usrpb200</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(8, 244)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>samp_rate_rx</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Sample Rate RX</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>2.4e6</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(144, 244)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>samp_rate_tx</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Sample Rate TX</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>2.4e6</value>
     </param>
   </block>
   <block>
@@ -1116,6 +1250,53 @@ we shift the LO a little further</value>
     </param>
   </block>
   <block>
+    <key>satnogs_coarse_doppler_correction_cc</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1064, 320)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satnogs_coarse_doppler_correction_cc_0_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>sampling_rate</key>
+      <value>samp_rate_tx</value>
+    </param>
+    <param>
+      <key>target_freq</key>
+      <value>tx_freq</value>
+    </param>
+  </block>
+  <block>
     <key>satnogs_tcp_rigctl_msg_source</key>
     <param>
       <key>alias</key>
@@ -1167,7 +1348,66 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>port</key>
-      <value>7355</value>
+      <value>doppler_port_rx</value>
+    </param>
+    <param>
+      <key>interval</key>
+      <value>1000</value>
+    </param>
+  </block>
+  <block>
+    <key>satnogs_tcp_rigctl_msg_source</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(776, 212)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>satnogs_tcp_rigctl_msg_source_0_0</value>
+    </param>
+    <param>
+      <key>addr</key>
+      <value>"127.0.0.1"</value>
+    </param>
+    <param>
+      <key>mtu</key>
+      <value>1500</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>mode</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>port</key>
+      <value>doppler_port_tx</value>
     </param>
     <param>
       <key>interval</key>
@@ -1237,7 +1477,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(440, 188)</value>
+      <value>(432, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1317,7 +1557,7 @@ we shift the LO a little further</value>
   </block>
   <connection>
     <source_block_id>ax25_afsk_0</source_block_id>
-    <sink_block_id>limesdr_sink_0</sink_block_id>
+    <sink_block_id>satnogs_coarse_doppler_correction_cc_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1358,8 +1598,20 @@ we shift the LO a little further</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>satnogs_coarse_doppler_correction_cc_0_0</source_block_id>
+    <sink_block_id>limesdr_sink_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
     <source_block_id>satnogs_tcp_rigctl_msg_source_0</source_block_id>
     <sink_block_id>satnogs_coarse_doppler_correction_cc_0</sink_block_id>
+    <source_key>freq</source_key>
+    <sink_key>freq</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>satnogs_tcp_rigctl_msg_source_0_0</source_block_id>
+    <sink_block_id>satnogs_coarse_doppler_correction_cc_0_0</sink_block_id>
     <source_key>freq</source_key>
     <sink_key>freq</sink_key>
   </connection>
