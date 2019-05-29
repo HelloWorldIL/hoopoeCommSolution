@@ -564,7 +564,7 @@ to move the audio
     </param>
     <param>
       <key>maxoutbuf</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>fmax</key>
@@ -729,7 +729,7 @@ to move the audio
     </param>
     <param>
       <key>maxoutbuf</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>max_dev</key>
