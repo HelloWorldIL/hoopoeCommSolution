@@ -102,8 +102,8 @@ Tasks for the project
 - [x] Create a unified communication flowgraph
 - [ ] Create production and testing flowgraphs
 - [x] Create flowgraph for LimeSDR
-- [ ] Create RX only flowgraph with osmocom I.E: RTL-SDR
-- [ ] Create flowgraph with osmocom for device support
+- [x] Create RX only flowgraph with osmocom I.E: RTL-SDR
+- [x] Create flowgraph with osmocom for device support
 
 ### Scripts
 - [x] Create Doppler Correction script
