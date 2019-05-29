@@ -435,7 +435,7 @@
     </param>
     <param>
       <key>port</key>
-      <value>52001</value>
+      <value>str(port)</value>
     </param>
     <param>
       <key>tcp_no_delay</key>
