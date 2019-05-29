@@ -360,6 +360,53 @@ we shift the LO a little further</value>
     </param>
   </block>
   <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(144, 196)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>channel</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Channel</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>intx</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
     <key>freq_xlating_fir_filter_xxx</key>
     <param>
       <key>alias</key>
@@ -552,7 +599,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>channel_mode</key>
-      <value>1</value>
+      <value>channel</value>
     </param>
     <param>
       <key>comment</key>
@@ -659,7 +706,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>channel_mode</key>
-      <value>1</value>
+      <value>channel</value>
     </param>
     <param>
       <key>comment</key>
