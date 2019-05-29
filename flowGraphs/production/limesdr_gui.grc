@@ -587,7 +587,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>gain_dB_ch1</key>
-      <value>int(rx_gain)</value>
+      <value>tx_gain</value>
     </param>
     <param>
       <key>nco_freq_ch1</key>
@@ -694,7 +694,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>gain_dB_ch1</key>
-      <value>int(rx_gain)</value>
+      <value>rx_gain</value>
     </param>
     <param>
       <key>lna_path_ch1</key>
@@ -1891,7 +1891,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>type</key>
-      <value>eng_float</value>
+      <value>intx</value>
     </param>
     <param>
       <key>value</key>
@@ -2214,6 +2214,53 @@ we shift the LO a little further</value>
     <param>
       <key>value</key>
       <value>145.97e6</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(440, 188)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>tx_gain</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>intx</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>20</value>
     </param>
   </block>
   <block>
