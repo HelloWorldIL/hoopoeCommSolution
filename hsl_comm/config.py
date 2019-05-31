@@ -13,11 +13,12 @@ class Config(object):
         tleUrl (string): TLE URL
     '''
 
-    def __init__(self, satelliteConfig, stationConfig, dopplerConfic, rotatorConfig, tleUrl):
+    def __init__(self, satelliteConfig, stationConfig, dopplerConfic, rotatorConfig, sdrConfig, tleUrl):
         self.Satellite = satelliteConfig
         self.Station = stationConfig
         self.Doppler = dopplerConfic
         self.Rotator = rotatorConfig
+        self.SDR = sdrConfig
         self.tleUrl = tleUrl
 
     @classmethod
@@ -43,12 +44,31 @@ class Config(object):
             configParser.get('Rotator', 'model'),
             configParser.get('Rotator', 'device')
         )
+        rxGain = GainConfig(
+            configParser.get('SDR', 'rx_rfGain'),
+            configParser.get('SDR', 'rx_ifGain', fallback=None),
+            configParser.get('SDR', 'rx_bbGain', fallback=None)
+        )
+        txGain = None
+        if configParser.get('SDR', 'tx_rfGain', fallback=None):
+            txGain = GainConfig(
+                configParser.get('SDR', 'tx_rfGain'),
+                configParser.get('SDR', 'tx_ifGain', fallback=None),
+                configParser.get('SDR', 'tx_bbGain', fallback=None)
+            )
+        sdr = SDRConfig(
+            configParser.get('SDR', 'name'),
+            configParser.get('SDR', 'samp_rate'),
+            rxGain,
+            txGain=txGain
+        )
         tleUrl = configParser.get('TLE', 'url')
         return cls(
             satellite,
             station,
             doppler,
             rotator,
+            sdr,
             tleUrl
         )
 
@@ -74,3 +94,16 @@ class RotatorConfig(object):
     def __init__(self, model, device):
         self.model = model
         self.device = device
+
+class SDRConfig(object):
+    def __init__(self, name, samp_rate, rxGain, txGain=None):
+        self.name = name
+        self.samp_rate = samp_rate
+        self.rxGain = rxGain
+        self.txGain = txGain
+
+class GainConfig(object):
+    def __init__(self, rfGain, ifGain=None, bbGain=None):
+        self.rfGain = rfGain
+        self.ifGain = ifGain
+        self.bbGain = bbGain
