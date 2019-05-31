@@ -11,6 +11,7 @@ import os
 from telnetlib import Telnet
 import subprocess
 
+from hsl_comm.config import Config
 
 class Predict(object):
     def __init__(self, sat, station):
@@ -83,70 +84,55 @@ class RotatorController(object):
 
 
 class PredictSolution(object):
-    def __init__(self, config=os.path.expanduser('~')+'/.hslCommSolution/config.ini'):
-        self.__getConfig(config)
-        self.sat = load.tle(self.tleURL)[self.satName]
-        self.station = Topos(self.stationlat, self.stationlon,
-                             elevation_m=self.stationAlt)
-        self.dopplerControllerRX = DopplerController(self.rxPort)
-        if self.txPort is not None:
-            self.dopplerControllerTX = DopplerController(self.txPort)
+    def __init__(self, config=Config.from_file()):
+        self.sat = load.tle(config.tleUrl)[config.Satellite.name]
+        self.station = Topos(config.Station.lat, config.Station.lon,
+                             elevation_m=config.Station.alt)
+        self.dopplerControllerRX = DopplerController(config.Doppler.rxPort)
+        if config.Doppler.txPort is not None:
+            self.dopplerControllerTX = DopplerController(config.Doppler.txPort)
         else:
             self.dopplerControllerTX = None
         self.rotatorController = RotatorController(
-            self.rotatorModel, self.rotatorDevice)
+            config.Rotator.model, config.Rotator.device)
         self.isConnected = False
 
         self.predict = Predict(self.sat, self.station)
 
-    def __getConfig(self, configLocation):
-        config = ConfigParser()
-        config.read(configLocation)
+        self.rxFreq = config.Satellite.rxFreq
+        self.txFreq = config.Satellite.txFreq
 
-        # Station prams
-        self.stationlat = config.get('Ground Station', 'lat')
-        self.stationlon = config.get('Ground Station', 'lon')
-        self.stationAlt = config.getint('Ground Station', 'alt')
-
-        # TLE and sat params
-        self.tleURL = config.get('TLE', 'url')
-        self.satName = config.get('TLE', 'sat')
-        self.txFreq = config.getint('Doppler', 'txFreq', fallback=None)
-        self.rxFreq = config.getint('Doppler', 'rxFreq')
-
-        # Network params
-        self.rxPort = config.getint('Doppler', 'rxPort')
-        self.txPort = config.getint('Doppler', 'txPort')
-        # Rotator params
-        self.rotatorModel = config.get('Rotator', 'model')
-        self.rotatorDevice = config.get('Rotator', 'device')
-
-    def Connect(self):
+    def Connect(self, rotator=True):
         self.dopplerControllerRX.Connect()
         if self.dopplerControllerTX is not None:
             self.dopplerControllerTX.Connect()
-        self.rotatorController.Connect()
+        if rotator:
+            self.rotatorController.Connect()
         self.isConnected = True
 
-    def sendDoppler(self, t):
-        self.dopplerControllerRX.Write(
-            self.predict.getDopplerFreq(self.rxFreq, t))
+    def sendDoppler(self, t, verbose=False):
+        rxFreq = self.predict.getDopplerFreq(self.rxFreq, t)
+        txFreq = self.predict.getDopplerFreq(self.txFreq, t)
+        if verbose:
+            print("Current RX freq: " + str(rxFreq))
+            print("Current TX freq: " + str(txFreq))
+        self.dopplerControllerRX.Write(rxFreq)
         if self.dopplerControllerTX is not None:
-            self.dopplerControllerTX.Write(
-                self.predict.getDopplerFreq(self.txFreq, t)
-            )
+            self.dopplerControllerTX.Write(txFreq)
+
+    def sendRotator(self, t):
         self.rotatorController.Send(
             self.predict.getAzEl(t)[0],
             self.predict.getAzEl(t)[1]
         )
 
-    def Start(self):
+    def Start(self, rotator=True, verbose=False):
         if not self.isConnected:
-            self.Connect()
+            self.Connect(rotator)
         while True:
             t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
-            self.sendDoppler(t)
+            self.sendDoppler(t, verbose)
+            if rotator:
+                self.sendRotator(t)
             time.sleep(1)
 
-solution = PredictSolution()
-solution.Start()
