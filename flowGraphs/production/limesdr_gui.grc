@@ -218,7 +218,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1072, 564)</value>
+      <value>(1080, 564)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2098,6 +2098,10 @@ we shift the LO a little further</value>
       <value></value>
     </param>
     <param>
+      <key>loop_bw</key>
+      <value>0.1</value>
+    </param>
+    <param>
       <key>_enabled</key>
       <value>1</value>
     </param>
@@ -2107,7 +2111,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(832, 500)</value>
+      <value>(832, 484)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2157,6 +2161,10 @@ we shift the LO a little further</value>
       <value></value>
     </param>
     <param>
+      <key>loop_bw</key>
+      <value>0.1</value>
+    </param>
+    <param>
       <key>_enabled</key>
       <value>1</value>
     </param>
@@ -2166,7 +2174,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(832, 612)</value>
+      <value>(832, 628)</value>
     </param>
     <param>
       <key>_rotation</key>

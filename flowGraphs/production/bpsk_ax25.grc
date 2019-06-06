@@ -615,7 +615,7 @@ to move the audio
     </param>
     <param>
       <key>w</key>
-      <value>2.0 * math.pi / 100.0</value>
+      <value>loop_bw</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -833,6 +833,54 @@ Used in filtering.</value>
     <param>
       <key>import</key>
       <value>import math</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value>The BPSK excess bandwidth setup.
+Used in filtering.</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(552, 884)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>loop_bw</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Costas Loop Bandwidth</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>eng_float</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>0.1</value>
     </param>
   </block>
   <block>
