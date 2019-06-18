@@ -84,23 +84,23 @@ class RotatorController(object):
 
 
 class PredictSolution(object):
-    def __init__(self, config=Config.from_file()):
-        self.sat = load.tle(config.tleUrl)[config.Satellite.name]
-        self.station = Topos(config.Station.lat, config.Station.lon,
-                             elevation_m=config.Station.alt)
-        self.dopplerControllerRX = DopplerController(config.Doppler.rxPort)
-        if config.Doppler.txPort is not None:
-            self.dopplerControllerTX = DopplerController(config.Doppler.txPort)
+    def __init__(self, satellite, station, doppler, rotator, tleUrl):
+        self.sat = load.tle(tleUrl)[satellite.name]
+        self.station = Topos(station.lat, station.lon,
+                             elevation_m=station.alt)
+        self.dopplerControllerRX = DopplerController(doppler.rxPort)
+        if doppler.txPort is not None:
+            self.dopplerControllerTX = DopplerController(doppler.txPort)
         else:
             self.dopplerControllerTX = None
         self.rotatorController = RotatorController(
-            config.Rotator.model, config.Rotator.device)
+            rotator.model, rotator.device)
         self.isConnected = False
 
         self.predict = Predict(self.sat, self.station)
 
-        self.rxFreq = config.Satellite.rxFreq
-        self.txFreq = config.Satellite.txFreq
+        self.rxFreq = satellite.rxFreq
+        self.txFreq = satellite.txFreq
 
     def Connect(self, rotator=True):
         self.dopplerControllerRX.Connect()
