@@ -533,7 +533,7 @@ we shift the LO a little further</value>
     </param>
     <param>
       <key>import</key>
-      <value>import satnogs</value>
+      <value>import math</value>
     </param>
   </block>
   <block>
@@ -1103,6 +1103,10 @@ we shift the LO a little further</value>
       <value></value>
     </param>
     <param>
+      <key>loop_bw</key>
+      <value>2*math.pi/200</value>
+    </param>
+    <param>
       <key>_enabled</key>
       <value>1</value>
     </param>
@@ -1160,6 +1164,10 @@ we shift the LO a little further</value>
     <param>
       <key>affinity</key>
       <value></value>
+    </param>
+    <param>
+      <key>loop_bw</key>
+      <value>2*math.pi/200</value>
     </param>
     <param>
       <key>_enabled</key>

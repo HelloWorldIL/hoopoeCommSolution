@@ -164,7 +164,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>64*2</value>
+      <value>128</value>
     </param>
   </block>
   <block>
@@ -218,7 +218,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>96000</value>
+      <value>9600*10</value>
     </param>
   </block>
   <block>
@@ -420,11 +420,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1264, 316)</value>
+      <value>(1448, 316)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -463,7 +463,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1112, 128)</value>
+      <value>(1288, 136)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -554,6 +554,120 @@
     </param>
   </block>
   <block>
+    <key>digital_fll_band_edge_cc</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>rolloff</key>
+      <value>excess_bw</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(880, 104)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>digital_fll_band_edge_cc_0</value>
+    </param>
+    <param>
+      <key>w</key>
+      <value>2*math.pi/200</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>filter_size</key>
+      <value>300</value>
+    </param>
+    <param>
+      <key>samps_per_sym</key>
+      <value>sps</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>cc</value>
+    </param>
+  </block>
+  <block>
+    <key>digital_lms_dd_equalizer_cc</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>cnst</key>
+      <value>bpsk_constellation</value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1664, 292)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>180</value>
+    </param>
+    <param>
+      <key>mu</key>
+      <value>.01</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>digital_lms_dd_equalizer_cc_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>num_taps</key>
+      <value>11</value>
+    </param>
+    <param>
+      <key>sps</key>
+      <value>2</value>
+    </param>
+  </block>
+  <block>
     <key>digital_symbol_sync_xx</key>
     <param>
       <key>alias</key>
@@ -585,7 +699,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1352, 108)</value>
+      <value>(1544, 60)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -605,7 +719,7 @@
     </param>
     <param>
       <key>loop_bw</key>
-      <value>loop_bw</value>
+      <value>loop_bw*2</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -613,7 +727,7 @@
     </param>
     <param>
       <key>max_dev</key>
-      <value>1.5</value>
+      <value>.05</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -621,7 +735,7 @@
     </param>
     <param>
       <key>osps</key>
-      <value>1</value>
+      <value>2</value>
     </param>
     <param>
       <key>pfb_mf_taps</key>
@@ -787,7 +901,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>cutoff_freq</key>
-      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(max_cfo))</value>
+      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(max_cfo*1.2))</value>
     </param>
     <param>
       <key>decim</key>
@@ -795,7 +909,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>2</value>
     </param>
     <param>
       <key>type</key>
@@ -803,7 +917,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(480, 100)</value>
+      <value>(392, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -862,7 +976,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>cutoff_freq</key>
-      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(max_cfo))</value>
+      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(5e3*1.2))</value>
     </param>
     <param>
       <key>decim</key>
@@ -878,7 +992,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(912, 100)</value>
+      <value>(704, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -891,6 +1005,81 @@ Used in filtering.</value>
     <param>
       <key>id</key>
       <value>low_pass_filter_0_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>width</key>
+      <value>baudrate / 10.0</value>
+    </param>
+    <param>
+      <key>win</key>
+      <value>firdes.WIN_HAMMING</value>
+    </param>
+  </block>
+  <block>
+    <key>low_pass_filter</key>
+    <param>
+      <key>beta</key>
+      <value>6.76</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>cutoff_freq</key>
+      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(max_cfo*1.2))</value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>interp_fir_filter_ccf</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1104, 116)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>gain</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>low_pass_filter_0_0_0</value>
     </param>
     <param>
       <key>interp</key>
@@ -964,7 +1153,7 @@ reception performance.</value>
     </param>
     <param>
       <key>value</key>
-      <value>1e3</value>
+      <value>2.5e3</value>
     </param>
   </block>
   <block>
@@ -1022,7 +1211,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1144, 44)</value>
+      <value>(1216, 20)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1230,7 +1419,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(704, 140)</value>
+      <value>(560, 140)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1250,7 +1439,7 @@ reception performance.</value>
     </param>
     <param>
       <key>reference</key>
-      <value>math.sqrt(2)/2</value>
+      <value>.5</value>
     </param>
   </block>
   <block>
@@ -1277,7 +1466,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -1371,7 +1560,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(688, 340)</value>
+      <value>(680, 340)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1544,8 +1733,20 @@ reception performance.</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>digital_symbol_sync_xx_0_0</source_block_id>
+    <source_block_id>digital_fll_band_edge_cc_0</source_block_id>
+    <sink_block_id>low_pass_filter_0_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_lms_dd_equalizer_cc_0</source_block_id>
     <sink_block_id>digital_constellation_decoder_cb_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_symbol_sync_xx_0_0</source_block_id>
+    <sink_block_id>digital_lms_dd_equalizer_cc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1557,6 +1758,12 @@ reception performance.</value>
   </connection>
   <connection>
     <source_block_id>low_pass_filter_0_0</source_block_id>
+    <sink_block_id>digital_fll_band_edge_cc_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>low_pass_filter_0_0_0</source_block_id>
     <sink_block_id>digital_costas_loop_cc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
@@ -1592,20 +1799,8 @@ reception performance.</value>
     <sink_key>in</sink_key>
   </connection>
   <connection>
-    <source_block_id>satellites_hdlc_deframer_0</source_block_id>
-    <sink_block_id>satellites_print_timestamp_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
     <source_block_id>satellites_hdlc_deframer_0_0</source_block_id>
     <sink_block_id>satellites_check_address_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>satellites_hdlc_deframer_0_0</source_block_id>
-    <sink_block_id>satellites_print_timestamp_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>in</sink_key>
   </connection>

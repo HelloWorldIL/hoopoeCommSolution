@@ -29,7 +29,8 @@ class Config(object):
         satellite = SatelliteConfig(
             configParser.get('Satellite', 'name'),
             configParser.getint('Satellite', 'rxFreq'),
-            configParser.getint('Satellite', 'txFreq')
+            configParser.getint('Satellite', 'txFreq'),
+            configParser.get('Satellite', 'callsign')
         )
         station = StationConfig(
             configParser.get('Ground Station', 'lat'),
@@ -74,10 +75,11 @@ class Config(object):
 
 
 class SatelliteConfig(object):
-    def __init__(self, name, rxFreq, txFreq):
+    def __init__(self, name, rxFreq, txFreq, callsign):
         self.name = name
         self.rxFreq = rxFreq
         self.txFreq = txFreq
+        self.callsign = callsign
 
 class StationConfig(object):
     def __init__(self, lat, lon, alt):

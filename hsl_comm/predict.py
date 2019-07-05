@@ -61,12 +61,12 @@ class RotatorController(object):
         self.proc = None
 
     def Connect(self):
-        proc = subprocess.Popen(f'sudo rotctl --model={self.model} --rot-file={self.device}',
+        proc = subprocess.Popen(f'rotctl --model={self.model} --rot-file={self.device}',
                                 shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         proc.communicate()
         if proc.returncode is not 0:
             raise Exception("Error connecting to rotator")
-        self.proc = subprocess.Popen(f'sudo rotctl --model={self.model} --rot-file={self.device}',
+        self.proc = subprocess.Popen(f'rotctl --model={self.model} --rot-file={self.device}',
                                      shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     def Send(self, azimuth, elevation):
@@ -85,7 +85,7 @@ class RotatorController(object):
 
 class PredictSolution(object):
     def __init__(self, satellite, station, doppler, rotator, tleUrl):
-        self.sat = load.tle(tleUrl)[satellite.name]
+        self.sat = load.tle(tleUrl, reload=False)[satellite.name]
         self.station = Topos(station.lat, station.lon,
                              elevation_m=station.alt)
         self.dopplerControllerRX = DopplerController(doppler.rxPort)
@@ -135,4 +135,3 @@ class PredictSolution(object):
             if rotator:
                 self.sendRotator(t)
             time.sleep(1)
-
