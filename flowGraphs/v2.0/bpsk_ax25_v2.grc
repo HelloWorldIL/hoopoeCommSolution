@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <?grc format='1' created='3.7.13'?>
 <flow_graph>
-  <timestamp>Sat Jun 29 07:58:26 2019</timestamp>
+  <timestamp>Mon Jul 15 05:12:25 2019</timestamp>
   <block>
     <key>options</key>
     <param>
@@ -10,7 +10,7 @@
     </param>
     <param>
       <key>window_size</key>
-      <value>4000, 4000</value>
+      <value>2500, 2500</value>
     </param>
     <param>
       <key>category</key>
@@ -30,7 +30,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 8)</value>
+      <value>(8, 4)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -38,7 +38,7 @@
     </param>
     <param>
       <key>generate_options</key>
-      <value>hb</value>
+      <value>qt_gui</value>
     </param>
     <param>
       <key>hier_block_src_path</key>
@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>bpsk_ax25_9600bps</value>
+      <value>bpsk_ax25_v2</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -82,7 +82,7 @@
     </param>
     <param>
       <key>title</key>
-      <value>BPSK AX.25 9600 BPS</value>
+      <value>BPSK AX25 V2</value>
     </param>
     <param>
       <key>placement</key>
@@ -113,7 +113,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(208, 508)</value>
+      <value>(208, 452)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -152,7 +152,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(168, 588)</value>
+      <value>(168, 532)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -164,7 +164,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>32</value>
+      <value>64</value>
     </param>
   </block>
   <block>
@@ -179,7 +179,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 588)</value>
+      <value>(8, 532)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -206,7 +206,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 444)</value>
+      <value>(8, 388)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -218,7 +218,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>9600*10</value>
+      <value>9600*20</value>
     </param>
   </block>
   <block>
@@ -233,7 +233,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(128, 508)</value>
+      <value>(128, 452)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -260,7 +260,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(576, 660)</value>
+      <value>(576, 604)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -283,54 +283,6 @@
     </param>
     <param>
       <key>comment</key>
-      <value>The BPSK excess bandwidth setup.
-Used in filtering.</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(952, 508)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>address</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Senders Address</value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>hide</key>
-      <value>none</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>string</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>"4x4hsl-1"</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
       <value>SDR RX sampling rate</value>
     </param>
     <param>
@@ -339,7 +291,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(416, 508)</value>
+      <value>(416, 452)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -390,7 +342,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(96, 256)</value>
+      <value>(320, 208)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -425,7 +377,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1224, 316)</value>
+      <value>(1224, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -464,7 +416,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1288, 136)</value>
+      <value>(1312, 80)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -523,7 +475,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(944, 252)</value>
+      <value>(944, 196)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -578,7 +530,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(880, 104)</value>
+      <value>(896, 64)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -633,7 +585,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(800, 260)</value>
+      <value>(744, 228)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -680,7 +632,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(928, 340)</value>
+      <value>(744, 292)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -731,7 +683,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1440, 292)</value>
+      <value>(1440, 236)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -778,7 +730,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>damping</key>
-      <value>math.sqrt(2)/2</value>
+      <value>1/math.sqrt(2.0)</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -794,7 +746,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1544, 60)</value>
+      <value>(1544, 4)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -822,7 +774,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>max_dev</key>
-      <value>.05</value>
+      <value>2*math.pi/100</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -846,7 +798,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>ted_type</key>
-      <value>digital.TED_ZERO_CROSSING</value>
+      <value>digital.TED_SIGNUM_TIMES_SLOPE_ML</value>
     </param>
   </block>
   <block>
@@ -866,7 +818,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(560, 508)</value>
+      <value>(560, 452)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -913,7 +865,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(192, 12)</value>
+      <value>(176, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -945,7 +897,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(728, 508)</value>
+      <value>(728, 452)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1012,7 +964,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(392, 100)</value>
+      <value>(408, 60)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1087,7 +1039,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(704, 100)</value>
+      <value>(720, 60)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1146,7 +1098,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>cutoff_freq</key>
-      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(500*1.2))</value>
+      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(1000*1.2))</value>
     </param>
     <param>
       <key>decim</key>
@@ -1162,7 +1114,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1104, 116)</value>
+      <value>(1128, 60)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1220,7 +1172,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(240, 588)</value>
+      <value>(240, 532)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1248,7 +1200,7 @@ reception performance.</value>
     </param>
     <param>
       <key>value</key>
-      <value>8e3</value>
+      <value>4e3</value>
     </param>
   </block>
   <block>
@@ -1263,7 +1215,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(96, 380)</value>
+      <value>(224, 324)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1306,7 +1258,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1296, 364)</value>
+      <value>(1296, 308)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1349,7 +1301,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1448, 68)</value>
+      <value>(1448, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1392,7 +1344,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1104, 68)</value>
+      <value>(1104, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1435,7 +1387,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(24, 148)</value>
+      <value>(0, 108)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1486,7 +1438,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(152, 124)</value>
+      <value>(160, 84)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1545,7 +1497,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 508)</value>
+      <value>(8, 452)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1600,7 +1552,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(560, 140)</value>
+      <value>(576, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1624,53 +1576,6 @@ reception performance.</value>
     </param>
   </block>
   <block>
-    <key>satellites_check_address</key>
-    <param>
-      <key>address</key>
-      <value>address</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>direction</key>
-      <value>"from"</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(608, 296)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>180</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>satellites_check_address_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-  </block>
-  <block>
     <key>satellites_nrzi_decode</key>
     <param>
       <key>alias</key>
@@ -1690,7 +1595,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1096, 320)</value>
+      <value>(1096, 272)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1729,7 +1634,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(216, 384)</value>
+      <value>(344, 336)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1772,7 +1677,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(336, 316)</value>
+      <value>(496, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1833,13 +1738,13 @@ reception performance.</value>
   </connection>
   <connection>
     <source_block_id>digital_hdlc_deframer_bp_0</source_block_id>
-    <sink_block_id>satellites_check_address_0</sink_block_id>
+    <sink_block_id>satellites_print_timestamp_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>digital_hdlc_deframer_bp_0_0</source_block_id>
-    <sink_block_id>satellites_check_address_0</sink_block_id>
+    <sink_block_id>satellites_print_timestamp_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>in</sink_key>
   </connection>
@@ -1896,12 +1801,6 @@ reception performance.</value>
     <sink_block_id>low_pass_filter_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>satellites_check_address_0</source_block_id>
-    <sink_block_id>satellites_print_timestamp_0</sink_block_id>
-    <source_key>ok</source_key>
-    <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>satellites_nrzi_decode_0</source_block_id>

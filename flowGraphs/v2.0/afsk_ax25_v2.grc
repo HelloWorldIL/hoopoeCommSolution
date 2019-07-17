@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <?grc format='1' created='3.7.13'?>
 <flow_graph>
-  <timestamp>Tue Feb 19 16:15:18 2019</timestamp>
+  <timestamp>Mon Jul 15 05:26:13 2019</timestamp>
   <block>
     <key>options</key>
     <param>
       <key>author</key>
-      <value></value>
+      <value>Ido</value>
     </param>
     <param>
       <key>window_size</key>
-      <value>3000,3000</value>
+      <value></value>
     </param>
     <param>
       <key>category</key>
-      <value>[HSL]</value>
+      <value>[GRC Hier Blocks]</value>
     </param>
     <param>
       <key>comment</key>
@@ -26,7 +26,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -46,7 +46,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>ax25_bpsk_tx</value>
+      <value>ax25_afsk_v2</value>
     </param>
     <param>
       <key>max_nouts</key>
@@ -82,62 +82,11 @@
     </param>
     <param>
       <key>title</key>
-      <value>AX25 BPSK TX</value>
+      <value>AX25 AFSK V2</value>
     </param>
     <param>
       <key>placement</key>
       <value>(0,0)</value>
-    </param>
-  </block>
-  <block>
-    <key>variable_constellation</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>const_points</key>
-      <value>[-1, 1]</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>bpsk</value>
-    </param>
-    <param>
-      <key>dims</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(8, 164)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>bpsk</value>
-    </param>
-    <param>
-      <key>rot_sym</key>
-      <value>2</value>
-    </param>
-    <param>
-      <key>soft_dec_lut</key>
-      <value>None</value>
-    </param>
-    <param>
-      <key>precision</key>
-      <value>8</value>
-    </param>
-    <param>
-      <key>sym_map</key>
-      <value>[0, 1]</value>
     </param>
   </block>
   <block>
@@ -148,11 +97,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 100)</value>
+      <value>(8, 116)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -165,6 +114,92 @@
     <param>
       <key>value</key>
       <value>48000</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(8, 180)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>sps</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>samp_rate/baud_rate</value>
+    </param>
+  </block>
+  <block>
+    <key>analog_nbfm_tx</key>
+    <param>
+      <key>audio_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(440, 380)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>analog_nbfm_tx_0</value>
+    </param>
+    <param>
+      <key>max_dev</key>
+      <value>5e3</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>fh</key>
+      <value>-1.0</value>
+    </param>
+    <param>
+      <key>quad_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>tau</key>
+      <value>75e-6</value>
     </param>
   </block>
   <block>
@@ -187,7 +222,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>freq</key>
@@ -195,7 +230,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(384, 108)</value>
+      <value>(688, 388)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -242,11 +277,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(304, 4)</value>
+      <value>(104, 116)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -258,7 +293,7 @@
     </param>
     <param>
       <key>label</key>
-      <value>Baud Rate (symbols per second)</value>
+      <value>Baud Rate</value>
     </param>
     <param>
       <key>short_id</key>
@@ -274,60 +309,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>9600</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_multiply_const_vxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value>Multiply const to prevent overmodulation
-
-values should be between 1 and -1</value>
-    </param>
-    <param>
-      <key>const</key>
-      <value>math.sqrt(2)/2</value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(728, 220)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_multiply_const_vxx_0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
+      <value>1200</value>
     </param>
   </block>
   <block>
@@ -338,7 +320,7 @@ values should be between 1 and -1</value>
     </param>
     <param>
       <key>comment</key>
-      <value>Multiply by 12 Khz to "Move" signal from LO</value>
+      <value></value>
     </param>
     <param>
       <key>affinity</key>
@@ -346,11 +328,11 @@ values should be between 1 and -1</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(624, 208)</value>
+      <value>(888, 472)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -397,11 +379,11 @@ values should be between 1 and -1</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(512, 604)</value>
+      <value>(288, 300)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -429,7 +411,15 @@ values should be between 1 and -1</value>
     </param>
   </block>
   <block>
-    <key>blocks_tag_debug</key>
+    <key>blocks_repack_bits_bb</key>
+    <param>
+      <key>k</key>
+      <value>8</value>
+    </param>
+    <param>
+      <key>l</key>
+      <value>1</value>
+    </param>
     <param>
       <key>alias</key>
       <value></value>
@@ -443,16 +433,16 @@ values should be between 1 and -1</value>
       <value></value>
     </param>
     <param>
-      <key>display</key>
+      <key>_enabled</key>
       <value>True</value>
     </param>
     <param>
-      <key>_enabled</key>
-      <value>0</value>
+      <key>endianness</key>
+      <value>gr.GR_LSB_FIRST</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(912, 468)</value>
+      <value>(768, 292)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -460,23 +450,70 @@ values should be between 1 and -1</value>
     </param>
     <param>
       <key>id</key>
-      <value>blocks_tag_debug_0</value>
+      <value>blocks_repack_bits_bb_0</value>
     </param>
     <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>filter</key>
+      <key>len_tag_key</key>
       <value>""</value>
     </param>
     <param>
-      <key>name</key>
-      <value>tags</value>
+      <key>maxoutbuf</key>
+      <value>0</value>
     </param>
     <param>
-      <key>num_inputs</key>
-      <value>1</value>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>align_output</key>
+      <value>False</value>
+    </param>
+  </block>
+  <block>
+    <key>blocks_repeat</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(624, 300)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_repeat_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>sps</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>byte</value>
     </param>
     <param>
       <key>vlen</key>
@@ -484,10 +521,10 @@ values should be between 1 and -1</value>
     </param>
   </block>
   <block>
-    <key>blocks_unpacked_to_packed_xx</key>
+    <key>blocks_vco_f</key>
     <param>
-      <key>bits_per_chunk</key>
-      <value>1</value>
+      <key>amplitude</key>
+      <value>.95</value>
     </param>
     <param>
       <key>alias</key>
@@ -495,13 +532,7 @@ values should be between 1 and -1</value>
     </param>
     <param>
       <key>comment</key>
-      <value>Pack bits.
-Example:
-
-Input
-00000001 00000000 -&gt;
-Output
-10</value>
+      <value></value>
     </param>
     <param>
       <key>affinity</key>
@@ -509,15 +540,11 @@ Output
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>endianness</key>
-      <value>gr.GR_MSB_FIRST</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(456, 444)</value>
+      <value>(168, 396)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -525,7 +552,62 @@ Output
     </param>
     <param>
       <key>id</key>
-      <value>blocks_unpacked_to_packed_xx_0</value>
+      <value>blocks_vco_f_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>sensitivity</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
+    <key>digital_chunks_to_symbols_xx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>dimension</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(952, 292)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>digital_chunks_to_symbols_xx_1</value>
+    </param>
+    <param>
+      <key>in_type</key>
+      <value>byte</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -540,169 +622,12 @@ Output
       <value>1</value>
     </param>
     <param>
-      <key>type</key>
-      <value>byte</value>
-    </param>
-  </block>
-  <block>
-    <key>parameter</key>
-    <param>
-      <key>alias</key>
-      <value></value>
+      <key>out_type</key>
+      <value>float</value>
     </param>
     <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(200, 4)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>callsign</value>
-    </param>
-    <param>
-      <key>label</key>
-      <value>Callsign</value>
-    </param>
-    <param>
-      <key>short_id</key>
-      <value></value>
-    </param>
-    <param>
-      <key>hide</key>
-      <value>none</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>string</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>'4X4HSC'</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_constellation_modulator</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value>Perform PSK modulation (BPSK Default)</value>
-    </param>
-    <param>
-      <key>constellation</key>
-      <value>bpsk</value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>differential</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>excess_bw</key>
-      <value>0.5</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(48, 244)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>digital_constellation_modulator_0</value>
-    </param>
-    <param>
-      <key>log</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>samples_per_symbol</key>
-      <value>int(samp_rate/baud_rate)</value>
-    </param>
-    <param>
-      <key>verbose</key>
-      <value>False</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_scrambler_bb</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(760, 588)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>digital_scrambler_bb_0</value>
-    </param>
-    <param>
-      <key>len</key>
-      <value>16</value>
-    </param>
-    <param>
-      <key>mask</key>
-      <value>0x21</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>seed</key>
-      <value>0</value>
+      <key>symbol_table</key>
+      <value>[mark_freq, space_freq]</value>
     </param>
   </block>
   <block>
@@ -713,7 +638,7 @@ Output
     </param>
     <param>
       <key>_io_cache</key>
-      <value>('Embedded Python Block', 'blk', [('preamble_len', '16'), ('postamble_len', '16'), ('min_time', '2.0')], [('in', 'message', 1)], [('out', 'message', 1)], 'Embedded Python Block example - a simple multiply const', ['min_time', 'postamble_len', 'preamble_len'])</value>
+      <value>('Stream Controlled Valve', 'blk', [], [('0', 'complex', 1), ('1', 'float', 1)], [('0', 'complex', 1)], 'Outputs stream 1 (Complex64) if the second stream does not equal 0, otherwise outputs 0', [])</value>
     </param>
     <param>
       <key>_source_code</key>
@@ -726,54 +651,35 @@ be the parameters. All of them are required to have default values!
 """
 
 import numpy as np
-import time
-import pmt
-import array
 from gnuradio import gr
 
 
 class blk(gr.sync_block):  # other base classes are basic_block, decim_block, interp_block
-    """Embedded Python Block example - a simple multiply const"""
+    """Outputs stream 1 (Complex64) if the second stream does not equal 0, otherwise outputs 0"""
 
-    def __init__(self, preamble_len=16, postamble_len=16, min_time=2.0):  # only default arguments here
+    def __init__(self):  # only default arguments here
         """arguments to this function show up as parameters in GRC"""
         gr.sync_block.__init__(
             self,
-            name='Embedded Python Block',   # will show up in GRC
-            in_sig=None,
-            out_sig=None
+            name='Stream Controlled Valve',   # will show up in GRC
+            in_sig=[np.complex64, np.float32],
+            out_sig=[np.complex64]
         )
-        self.preamble_len = preamble_len
-        self.postamble_len = postamble_len
-        self.min_time = min_time
-        self.flag = [np.uint8(0), np.uint8(1), np.uint8(1), np.uint8(1),
-        np.uint8(1), np.uint8(1), np.uint8(1), np.uint8(0)]
-        self.startTime = time.time()
         # if an attribute with the same name as a parameter is found,
         # a callback is registered (properties work, too).
-        self.message_port_register_in(pmt.intern('in'))
-        self.set_msg_handler(pmt.intern('in'), self.handle_msg)
-        self.message_port_register_out(pmt.intern('out'))
-
-    def handle_msg(self, msg_pmt):
-        end = time.time()
-        msg = pmt.cdr(msg_pmt)
-        data = list(pmt.u8vector_elements(msg))
-        if (end-self.startTime) &gt; self.min_time:
-            buff = self.flag*self.preamble_len + data + self.flag*self.postamble_len
-        else:
-            buff = self.flag + data + self.flag
-        self.startTime = time.time()
-        buff = array.array('B', buff)
-        self.message_port_pub(pmt.intern('out'), pmt.cons(pmt.PMT_NIL, pmt.init_u8vector(len(buff), buff)))
 
     def work(self, input_items, output_items):
-        pass
+        """example: multiply with constant"""
+        if(all(input_items[1] &lt;= 0.)):
+            output_items[0][:] = np.complex64(0)
+        else:
+            output_items[0][:] = input_items[0]
+        return len(output_items[0])
 </value>
     </param>
     <param>
       <key>comment</key>
-      <value></value>
+      <value>Prevents carrier signal from being transmitted at all times.</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -781,7 +687,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(312, 588)</value>
+      <value>(480, 544)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -789,19 +695,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>id</key>
-      <value>epy_block_1</value>
-    </param>
-    <param>
-      <key>min_time</key>
-      <value>0.1</value>
-    </param>
-    <param>
-      <key>postamble_len</key>
-      <value>int(baud_rate*0.1)/8</value>
-    </param>
-    <param>
-      <key>preamble_len</key>
-      <value>int(baud_rate*0.1)/8</value>
+      <value>epy_block_0</value>
     </param>
   </block>
   <block>
@@ -816,11 +710,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(104, 100)</value>
+      <value>(192, 4)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -847,11 +741,58 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(672, 12)</value>
+      <value>(224, 116)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>mark_freq</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Mark Frequency</value>
+    </param>
+    <param>
+      <key>short_id</key>
+      <value></value>
+    </param>
+    <param>
+      <key>hide</key>
+      <value>none</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>intx</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>1200</value>
+    </param>
+  </block>
+  <block>
+    <key>parameter</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(640, 116)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -863,7 +804,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>label</key>
-      <value>RF Offset</value>
+      <value>Tx Carrier Offset</value>
     </param>
     <param>
       <key>short_id</key>
@@ -890,11 +831,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1160, 220)</value>
+      <value>(1000, 484)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -910,7 +851,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>label</key>
-      <value>bpsk</value>
+      <value>out</value>
     </param>
     <param>
       <key>num_streams</key>
@@ -933,11 +874,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(0, 452)</value>
+      <value>(0, 300)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -949,7 +890,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>label</key>
-      <value>data</value>
+      <value>packets</value>
     </param>
     <param>
       <key>num_streams</key>
@@ -957,7 +898,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>optional</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
       <key>type</key>
@@ -976,7 +917,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>comment</key>
-      <value>Interpolate to RF sample rate</value>
+      <value></value>
     </param>
     <param>
       <key>affinity</key>
@@ -988,7 +929,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>fbw</key>
@@ -996,7 +937,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(376, 244)</value>
+      <value>(680, 532)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1043,7 +984,7 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(472, 4)</value>
+      <value>(520, 116)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1067,11 +1008,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>type</key>
-      <value>intx</value>
+      <value>eng_float</value>
     </param>
     <param>
       <key>value</key>
-      <value>int(2.4e6)</value>
+      <value>2.4e6</value>
     </param>
   </block>
   <block>
@@ -1090,11 +1031,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(152, 596)</value>
+      <value>(128, 292)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1114,11 +1055,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>postamble_bytes</key>
-      <value>0</value>
+      <value>5</value>
     </param>
     <param>
       <key>preamble_bytes</key>
-      <value>0</value>
+      <value>int(baud_rate*0.1)/8</value>
     </param>
   </block>
   <block>
@@ -1137,11 +1078,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(904, 608)</value>
+      <value>(496, 304)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1161,73 +1102,6 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
   </block>
   <block>
-    <key>satnogs_ax25_encoder_mb</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value>Encode Data to AX.25 Packet</value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>dest_addr</key>
-      <value>all</value>
-    </param>
-    <param>
-      <key>dest_ssid</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>scramble</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(240, 404)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>satnogs_ax25_encoder_mb_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>postamble_len</key>
-      <value>16</value>
-    </param>
-    <param>
-      <key>preamble_len</key>
-      <value>int(baud_rate*0.1)/8</value>
-    </param>
-    <param>
-      <key>src_addr</key>
-      <value>callsign</value>
-    </param>
-    <param>
-      <key>src_ssid</key>
-      <value>ssid</value>
-    </param>
-  </block>
-  <block>
     <key>parameter</key>
     <param>
       <key>alias</key>
@@ -1239,11 +1113,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(200, 100)</value>
+      <value>(368, 116)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1251,11 +1125,11 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>id</key>
-      <value>ssid</value>
+      <value>space_freq</value>
     </param>
     <param>
       <key>label</key>
-      <value>SSID</value>
+      <value>Space Frequency</value>
     </param>
     <param>
       <key>short_id</key>
@@ -1271,9 +1145,15 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     </param>
     <param>
       <key>value</key>
-      <value>0</value>
+      <value>2200</value>
     </param>
   </block>
+  <connection>
+    <source_block_id>analog_nbfm_tx_0</source_block_id>
+    <sink_block_id>epy_block_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
   <connection>
     <source_block_id>analog_sig_source_x_0</source_block_id>
     <sink_block_id>blocks_multiply_xx_0</sink_block_id>
@@ -1281,64 +1161,58 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
-    <sink_block_id>blocks_tag_debug_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
+    <source_block_id>blocks_multiply_xx_0</source_block_id>
     <sink_block_id>pad_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_multiply_xx_0</source_block_id>
-    <sink_block_id>blocks_multiply_const_vxx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>blocks_pdu_to_tagged_stream_0</source_block_id>
-    <sink_block_id>digital_scrambler_bb_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_unpacked_to_packed_xx_0</source_block_id>
-    <sink_block_id>digital_constellation_modulator_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_constellation_modulator_0</source_block_id>
-    <sink_block_id>rational_resampler_xxx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_scrambler_bb_0</source_block_id>
     <sink_block_id>satellites_nrzi_encode_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>epy_block_1</source_block_id>
-    <sink_block_id>blocks_pdu_to_tagged_stream_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>pdus</sink_key>
+    <source_block_id>blocks_repack_bits_bb_0</source_block_id>
+    <sink_block_id>digital_chunks_to_symbols_xx_1</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_repeat_0</source_block_id>
+    <sink_block_id>blocks_repack_bits_bb_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_vco_f_0</source_block_id>
+    <sink_block_id>analog_nbfm_tx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_vco_f_0</source_block_id>
+    <sink_block_id>epy_block_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>1</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_chunks_to_symbols_xx_1</source_block_id>
+    <sink_block_id>blocks_vco_f_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>epy_block_0</source_block_id>
+    <sink_block_id>rational_resampler_xxx_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>pad_source_0</source_block_id>
     <sink_block_id>satellites_hdlc_framer_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>in</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>satnogs_ax25_encoder_mb_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>info</sink_key>
   </connection>
   <connection>
     <source_block_id>rational_resampler_xxx_0</source_block_id>
@@ -1348,19 +1222,13 @@ class blk(gr.sync_block):  # other base classes are basic_block, decim_block, in
   </connection>
   <connection>
     <source_block_id>satellites_hdlc_framer_0</source_block_id>
-    <sink_block_id>epy_block_1</sink_block_id>
+    <sink_block_id>blocks_pdu_to_tagged_stream_0</sink_block_id>
     <source_key>out</source_key>
-    <sink_key>in</sink_key>
+    <sink_key>pdus</sink_key>
   </connection>
   <connection>
     <source_block_id>satellites_nrzi_encode_0</source_block_id>
-    <sink_block_id>blocks_unpacked_to_packed_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>satnogs_ax25_encoder_mb_0</source_block_id>
-    <sink_block_id>blocks_unpacked_to_packed_xx_0</sink_block_id>
+    <sink_block_id>blocks_repeat_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>

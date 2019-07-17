@@ -13,6 +13,7 @@ import subprocess
 
 from hsl_comm.config import Config
 
+
 class Predict(object):
     def __init__(self, sat, station):
         self.sat = sat

@@ -90,33 +90,6 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(776, 772)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>audio_samp_rate</value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>48000</value>
-    </param>
-  </block>
-  <block>
     <key>variable_constellation</key>
     <param>
       <key>comment</key>
@@ -168,6 +141,41 @@
     </param>
   </block>
   <block>
+    <key>variable_modulate_vector</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>data</key>
+      <value>preamble_hex</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>taps</key>
+      <value>[1]</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(856, 20)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>modulated_preamble</value>
+    </param>
+    <param>
+      <key>mod</key>
+      <value>rxmod</value>
+    </param>
+  </block>
+  <block>
     <key>variable</key>
     <param>
       <key>comment</key>
@@ -191,7 +199,61 @@
     </param>
     <param>
       <key>value</key>
-      <value>32</value>
+      <value>64</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(704, 732)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>oversampling_factor</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>5</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1056, 20)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>preamble_hex</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>[0x7e]*int(baudrate*0.1/8)</value>
     </param>
   </block>
   <block>
@@ -233,6 +295,33 @@
     </param>
     <param>
       <key>_coordinate</key>
+      <value>(664, 20)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rxmod</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>digital.bpsk_mod(None, False, samples_per_symbol=(sps*oversampling_factor))</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
       <value>(128, 732)</value>
     </param>
     <param>
@@ -245,7 +334,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>4</value>
+      <value>5</value>
     </param>
   </block>
   <block>
@@ -296,69 +385,6 @@
     </param>
   </block>
   <block>
-    <key>analog_agc2_xx</key>
-    <param>
-      <key>attack_rate</key>
-      <value>0.01</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>decay_rate</key>
-      <value>0.001</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(416, 156)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>gain</key>
-      <value>1.0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>analog_agc2_xx_0_0</value>
-    </param>
-    <param>
-      <key>max_gain</key>
-      <value>65536</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>reference</key>
-      <value>0.015</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-  </block>
-  <block>
     <key>parameter</key>
     <param>
       <key>alias</key>
@@ -402,50 +428,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>1200</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_complex_to_real</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(952, 200)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_complex_to_real_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
+      <value>9600</value>
     </param>
   </block>
   <block>
@@ -464,7 +447,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -480,52 +463,7 @@
     </param>
   </block>
   <block>
-    <key>blocks_rotator_cc</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value>Add a frequency offset of 1200 Hz 
-to move the audio
- a bit higher than 0.</value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(752, 188)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_rotator_cc_0_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>phase_inc</key>
-      <value>2.0 * math.pi * (1200.0 / audio_samp_rate)</value>
-    </param>
-  </block>
-  <block>
-    <key>digital_constellation_receiver_cb</key>
+    <key>digital_constellation_decoder_cb</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -544,11 +482,11 @@ to move the audio
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1216, 464)</value>
+      <value>(1200, 588)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -556,11 +494,54 @@ to move the audio
     </param>
     <param>
       <key>id</key>
+      <value>digital_constellation_decoder_cb_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>digital_constellation_receiver_cb</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>constellation</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1360, 560)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
       <value>digital_constellation_receiver_cb_0</value>
     </param>
     <param>
       <key>loop_bw</key>
-      <value>2.0 * math.pi/100.0</value>
+      <value></value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -568,7 +549,7 @@ to move the audio
     </param>
     <param>
       <key>fmax</key>
-      <value>0.25</value>
+      <value></value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -576,7 +557,7 @@ to move the audio
     </param>
     <param>
       <key>fmin</key>
-      <value>-0.25</value>
+      <value></value>
     </param>
     <param>
       <key>showports</key>
@@ -603,7 +584,7 @@ to move the audio
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(744, 320)</value>
+      <value>(768, 344)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -611,7 +592,7 @@ to move the audio
     </param>
     <param>
       <key>id</key>
-      <value>digital_costas_loop_cc_0_0</value>
+      <value>digital_costas_loop_cc_0</value>
     </param>
     <param>
       <key>w</key>
@@ -622,8 +603,16 @@ to move the audio
       <value>0</value>
     </param>
     <param>
+      <key>max_freq</key>
+      <value>500*(2*math.pi)/(oversampling_factor*sps*baudrate)</value>
+    </param>
+    <param>
       <key>minoutbuf</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>min_freq</key>
+      <value>-500*(2*math.pi)/(oversampling_factor*sps*baudrate)</value>
     </param>
     <param>
       <key>order</key>
@@ -631,7 +620,7 @@ to move the audio
     </param>
     <param>
       <key>use_snr</key>
-      <value>True</value>
+      <value>False</value>
     </param>
   </block>
   <block>
@@ -686,7 +675,7 @@ to move the audio
     </param>
   </block>
   <block>
-    <key>digital_pfb_clock_sync_xxx</key>
+    <key>digital_fll_band_edge_cc</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -701,15 +690,15 @@ to move the audio
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
-      <key>filter_size</key>
-      <value>nfilts</value>
+      <key>rolloff</key>
+      <value>excess_bw</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1224, 316)</value>
+      <value>(904, 120)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -717,15 +706,86 @@ to move the audio
     </param>
     <param>
       <key>id</key>
-      <value>digital_pfb_clock_sync_xxx_0</value>
+      <value>digital_fll_band_edge_cc_0</value>
     </param>
     <param>
-      <key>init_phase</key>
-      <value>nfilts/2</value>
+      <key>w</key>
+      <value>loop_bw/2</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>filter_size</key>
+      <value>200</value>
+    </param>
+    <param>
+      <key>samps_per_sym</key>
+      <value>sps*oversampling_factor</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>cc</value>
+    </param>
+  </block>
+  <block>
+    <key>digital_symbol_sync_xx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>damping</key>
+      <value>1.0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>ted_gain</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>nfilters</key>
+      <value>nfilts</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1320, 276)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>cc</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>digital_symbol_sync_xx_0</value>
+    </param>
+    <param>
+      <key>resamp_type</key>
+      <value>digital.IR_PFB_MF</value>
     </param>
     <param>
       <key>loop_bw</key>
-      <value>2.0 * math.pi/100.0</value>
+      <value>loop_bw</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -744,16 +804,20 @@ to move the audio
       <value>1</value>
     </param>
     <param>
+      <key>pfb_mf_taps</key>
+      <value>rrc_taps</value>
+    </param>
+    <param>
       <key>sps</key>
       <value>sps</value>
     </param>
     <param>
-      <key>taps</key>
-      <value>rrc_taps</value>
+      <key>constellation</key>
+      <value>digital.constellation_bpsk().base()</value>
     </param>
     <param>
-      <key>type</key>
-      <value>ccf</value>
+      <key>ted_type</key>
+      <value>digital.TED_SIGNAL_TIMES_SLOPE_ML</value>
     </param>
   </block>
   <block>
@@ -880,7 +944,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>value</key>
-      <value>0.1</value>
+      <value>2*math.pi/200</value>
     </param>
   </block>
   <block>
@@ -915,11 +979,11 @@ Used in filtering.</value>
     </param>
     <param>
       <key>type</key>
-      <value>fir_filter_ccf</value>
+      <value>interp_fir_filter_ccf</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(560, 300)</value>
+      <value>(328, 324)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -947,7 +1011,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>samp_rate</key>
-      <value>audio_samp_rate</value>
+      <value>sps*baudrate*oversampling_factor</value>
     </param>
     <param>
       <key>width</key>
@@ -990,11 +1054,11 @@ Used in filtering.</value>
     </param>
     <param>
       <key>type</key>
-      <value>fir_filter_ccf</value>
+      <value>interp_fir_filter_ccf</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(576, 140)</value>
+      <value>(712, 172)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1022,7 +1086,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>samp_rate</key>
-      <value>audio_samp_rate</value>
+      <value>sps*baudrate*oversampling_factor</value>
     </param>
     <param>
       <key>width</key>
@@ -1080,7 +1144,7 @@ reception performance.</value>
     </param>
     <param>
       <key>value</key>
-      <value>5000</value>
+      <value>5e3</value>
     </param>
   </block>
   <block>
@@ -1138,7 +1202,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(752, 244)</value>
+      <value>(1128, 188)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1181,7 +1245,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 300)</value>
+      <value>(0, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1232,7 +1296,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(152, 196)</value>
+      <value>(40, 348)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1240,7 +1304,7 @@ reception performance.</value>
     </param>
     <param>
       <key>id</key>
-      <value>pfb_arb_resampler_xxx_0</value>
+      <value>pfb_arb_resampler_xxx_1</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1256,7 +1320,7 @@ reception performance.</value>
     </param>
     <param>
       <key>rrate</key>
-      <value>audio_samp_rate/samp_rate</value>
+      <value>(sps*oversampling_factor*baudrate)/samp_rate</value>
     </param>
     <param>
       <key>samp_delay</key>
@@ -1264,74 +1328,11 @@ reception performance.</value>
     </param>
     <param>
       <key>atten</key>
-      <value>80</value>
+      <value>100</value>
     </param>
     <param>
       <key>taps</key>
-      <value></value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>ccf</value>
-    </param>
-  </block>
-  <block>
-    <key>pfb_arb_resampler_xxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(312, 324)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>pfb_arb_resampler_xxx_0_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>nfilts</key>
-      <value>32</value>
-    </param>
-    <param>
-      <key>rrate</key>
-      <value>1.0 * audio_samp_rate/samp_rate</value>
-    </param>
-    <param>
-      <key>samp_delay</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>atten</key>
-      <value>80</value>
-    </param>
-    <param>
-      <key>taps</key>
-      <value></value>
+      <value>[]</value>
     </param>
     <param>
       <key>type</key>
@@ -1354,11 +1355,11 @@ reception performance.</value>
     </param>
     <param>
       <key>decim</key>
-      <value>audio_samp_rate</value>
+      <value>int(samp_rate)</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>fbw</key>
@@ -1366,7 +1367,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1016, 340)</value>
+      <value>(120, 236)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1378,11 +1379,70 @@ reception performance.</value>
     </param>
     <param>
       <key>interp</key>
-      <value>sps*baudrate</value>
+      <value>(sps*oversampling_factor*baudrate)</value>
     </param>
     <param>
       <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>taps</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>ccc</value>
+    </param>
+  </block>
+  <block>
+    <key>rational_resampler_xxx</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>oversampling_factor</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>fbw</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1152, 324)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>rational_resampler_xxx_1</value>
+    </param>
+    <param>
+      <key>interp</key>
       <value>1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
     </param>
     <param>
       <key>minoutbuf</key>
@@ -1417,11 +1477,11 @@ reception performance.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(152, 340)</value>
+      <value>(528, 364)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1441,7 +1501,7 @@ reception performance.</value>
     </param>
     <param>
       <key>reference</key>
-      <value>0.5</value>
+      <value>.5</value>
     </param>
   </block>
   <block>
@@ -1519,7 +1579,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(456, 568)</value>
+      <value>(448, 576)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1652,7 +1712,7 @@ reception performance.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1088, 592)</value>
+      <value>(1072, 592)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1757,76 +1817,21 @@ reception performance.</value>
       <value>True</value>
     </param>
   </block>
-  <block>
-    <key>satnogs_ogg_encoder</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>filename</key>
-      <value>file_path</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1112, 180)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>satnogs_ogg_encoder_0</value>
-    </param>
-    <param>
-      <key>quality</key>
-      <value>1.0</value>
-    </param>
-    <param>
-      <key>samp_rate</key>
-      <value>audio_samp_rate</value>
-    </param>
-  </block>
   <connection>
-    <source_block_id>analog_agc2_xx_0_0</source_block_id>
-    <sink_block_id>low_pass_filter_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_complex_to_real_0</source_block_id>
-    <sink_block_id>satnogs_ogg_encoder_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_rotator_cc_0_0</source_block_id>
-    <sink_block_id>blocks_complex_to_real_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>digital_constellation_receiver_cb_0</source_block_id>
+    <source_block_id>digital_constellation_decoder_cb_0</source_block_id>
     <sink_block_id>satellites_nrzi_decode_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>digital_costas_loop_cc_0_0</source_block_id>
-    <sink_block_id>rational_resampler_xxx_0</sink_block_id>
+    <source_block_id>digital_costas_loop_cc_0</source_block_id>
+    <sink_block_id>pad_sink_2</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>digital_costas_loop_cc_0</source_block_id>
+    <sink_block_id>rational_resampler_xxx_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1837,62 +1842,56 @@ reception performance.</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>digital_pfb_clock_sync_xxx_0</source_block_id>
-    <sink_block_id>digital_constellation_receiver_cb_0</sink_block_id>
+    <source_block_id>digital_fll_band_edge_cc_0</source_block_id>
+    <sink_block_id>digital_costas_loop_cc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>low_pass_filter_0</source_block_id>
-    <sink_block_id>digital_costas_loop_cc_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>low_pass_filter_0</source_block_id>
+    <source_block_id>digital_fll_band_edge_cc_0</source_block_id>
     <sink_block_id>pad_sink_2</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>low_pass_filter_0_0</source_block_id>
-    <sink_block_id>blocks_rotator_cc_0_0</sink_block_id>
+    <source_block_id>digital_symbol_sync_xx_0</source_block_id>
+    <sink_block_id>digital_constellation_decoder_cb_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pad_source_0</source_block_id>
-    <sink_block_id>pfb_arb_resampler_xxx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>pad_source_0</source_block_id>
+    <source_block_id>low_pass_filter_0</source_block_id>
     <sink_block_id>rms_agc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pfb_arb_resampler_xxx_0</source_block_id>
-    <sink_block_id>analog_agc2_xx_0_0</sink_block_id>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>pfb_arb_resampler_xxx_1</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>pfb_arb_resampler_xxx_0_0</source_block_id>
-    <sink_block_id>low_pass_filter_0</sink_block_id>
+    <source_block_id>pad_source_0</source_block_id>
+    <sink_block_id>rational_resampler_xxx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>rational_resampler_xxx_0</source_block_id>
-    <sink_block_id>digital_pfb_clock_sync_xxx_0</sink_block_id>
+    <sink_block_id>low_pass_filter_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>rational_resampler_xxx_1</source_block_id>
+    <sink_block_id>digital_symbol_sync_xx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>rms_agc_0</source_block_id>
-    <sink_block_id>pfb_arb_resampler_xxx_0_0</sink_block_id>
+    <sink_block_id>digital_costas_loop_cc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
