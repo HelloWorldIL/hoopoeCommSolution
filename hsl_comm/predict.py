@@ -14,10 +14,49 @@ import subprocess
 from hsl_comm.config import Config
 
 
+class Pass:
+    def __init__(self, ):
+        pass
+
+
 class Predict(object):
     def __init__(self, sat, station):
         self.sat = sat
         self.station = station
+
+    def passesStartEndTimes(self, startTime, endTime, seconds=False):
+        ts = load.timescale()
+
+        tDateTime = startTime.utc_datetime()
+        # Differance between start and end time
+        d = endTime.utc_datetime()-startTime.utc_datetime()
+        dSec = int(d.total_seconds())
+        dMin = int(d.total_seconds()/60)
+        # Gets time array between start and end time
+        t = ts.utc(tDateTime.year, tDateTime.month, tDateTime.day, tDateTime.hour,
+                   tDateTime.minute if seconds else range(tDateTime.minute, tDateTime.minute+dMin), tDateTime.second if not seconds else range(tDateTime.second, tDateTime.second+dSec))
+        orbit = (self.sat-self.station).at(t)
+        alt = orbit.altaz()[0]
+        above_horizon = alt.degrees > 0
+        boundaries, = np.diff(above_horizon).nonzero()
+        # Check if a pass as already started and ignore it
+        if len(boundaries) % 2 != 0:
+            boundaries = np.delete(boundaries, 0)
+        boundaries = np.resize(boundaries, (len(boundaries)//2, 2))
+        return t[boundaries]
+
+    def getNextPasses(self, startTime, endTime):
+        ts = load.timescale()
+
+        course = self.passesStartEndTimes(startTime, endTime)
+        fine = []
+        for times in course:
+            start = ts.utc(times[0].utc_datetime()-timedelta(minutes=1))
+            end = ts.utc(times[1].utc_datetime()+timedelta(minutes=1))
+            temp = self.passesStartEndTimes(start, end, seconds=True)
+            # print(temp[0])
+            fine.append(temp)
+        return fine
 
     def getDopplerFreq(self, freq, t):
         C = 299792458
@@ -26,11 +65,12 @@ class Predict(object):
         diff = (self.sat - self.station).at(t)
         diff1 = (self.sat - self.station).at(t1)
 
+        # Compute the change in distance from observer
         range1 = diff.distance().km
         range2 = diff1.distance().km
         change = (range1 - range2)*1000
 
-        return int((freq * (C + change) / C))
+        return int((freq * (C + change) / C))  # Doppler calculation
 
     def getAzEl(self, t):
         diff = (self.sat - self.station).at(t)
