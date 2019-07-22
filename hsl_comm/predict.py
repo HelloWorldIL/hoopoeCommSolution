@@ -13,18 +13,12 @@ import subprocess
 
 from hsl_comm.config import Config
 
-
-class Pass:
-    def __init__(self, ):
-        pass
-
-
 class Predict(object):
     def __init__(self, sat, station):
         self.sat = sat
         self.station = station
 
-    def passesStartEndTimes(self, startTime, endTime, seconds=False):
+    def getPassTimes(self, startTime, endTime, seconds=False, startEnd=False):
         ts = load.timescale()
 
         tDateTime = startTime.utc_datetime()
@@ -38,25 +32,31 @@ class Predict(object):
         orbit = (self.sat-self.station).at(t)
         alt = orbit.altaz()[0]
         above_horizon = alt.degrees > 0
-        boundaries, = np.diff(above_horizon).nonzero()
-        # Check if a pass as already started and ignore it
-        if len(boundaries) % 2 != 0:
-            boundaries = np.delete(boundaries, 0)
-        boundaries = np.resize(boundaries, (len(boundaries)//2, 2))
-        return t[boundaries]
+        if not startEnd:
+            boundaries, = above_horizon.nonzero()
+            return t[boundaries]
+        else:
+            boundaries, = np.diff(above_horizon).nonzero()
+            # Check if a pass as already started and ignore it
+            if len(boundaries) % 2 != 0:
+                boundaries = np.delete(boundaries, 0)
+            boundaries = np.resize(boundaries, (len(boundaries)//2, 2))
+            return t[boundaries]
 
     def getNextPasses(self, startTime, endTime):
         ts = load.timescale()
 
-        course = self.passesStartEndTimes(startTime, endTime)
+        course = self.getPassTimes(startTime, endTime, startEnd=True)
         fine = []
         for times in course:
             start = ts.utc(times[0].utc_datetime()-timedelta(minutes=1))
             end = ts.utc(times[1].utc_datetime()+timedelta(minutes=1))
-            temp = self.passesStartEndTimes(start, end, seconds=True)
-            # print(temp[0])
-            fine.append(temp)
+            temp = self.getPassTimes(start, end, seconds=True, startEnd=True)
+            fine.append(temp[0])
         return fine
+
+    def getMaxElevation(self, passTimes):
+        return self.getAzEl(passTimes)[1].max()
 
     def getDopplerFreq(self, freq, t):
         C = 299792458
