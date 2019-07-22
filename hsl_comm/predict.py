@@ -43,17 +43,20 @@ class Predict(object):
             boundaries = np.resize(boundaries, (len(boundaries)//2, 2))
             return t[boundaries]
 
-    def getNextPasses(self, startTime, endTime):
+    def getNextPasses(self, startTime, endTime, withData=False):
         ts = load.timescale()
 
         course = self.getPassTimes(startTime, endTime, startEnd=True)
-        fine = []
+        passes = []
         for times in course:
             start = ts.utc(times[0].utc_datetime()-timedelta(minutes=1))
             end = ts.utc(times[1].utc_datetime()+timedelta(minutes=1))
-            temp = self.getPassTimes(start, end, seconds=True, startEnd=True)
-            fine.append(temp[0])
-        return fine
+            data = self.getPassTimes(start, end, seconds=True)
+            # print(data)
+            maxEl = self.getAzEl(data)[1].max()
+            maxElTime = np.where(data==maxEl)
+            passes.append((start, end, maxEl, maxElTime, data if withData else None))
+        return passes
 
     def getMaxElevation(self, passTimes):
         return self.getAzEl(passTimes)[1].max()

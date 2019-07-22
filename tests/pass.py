@@ -9,10 +9,16 @@ predict = Predict(sat, station)
 ts = load.timescale()
 
 t = ts.now()
-t1 = ts.utc(t.utc_datetime()+timedelta(days=5))
+t1 = ts.utc(t.utc_datetime()+timedelta(days=1))
 
 tDateTime = t.utc_datetime()
 
-times = predict.getNextPasses(t, t1)
+passes = predict.getNextPasses(t, t1)
 
-print(times[0])
+# start = boundaries[1][0]
+# end = boundaries[1][1]
+# times = predict.getNextPasses(start, end)
+
+for single_pass in passes:
+    if single_pass[2] > 1:
+        print(single_pass[2])
