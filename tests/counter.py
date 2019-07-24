@@ -33,7 +33,7 @@ count = 0
 prev = -1
 missing = ""
 
-while prev < 209:
+while prev < 254:
     packet = sock.recv(4096)
     if packet is not None and len(packet.hex()) < 60:
         # Kiss Decode
@@ -45,11 +45,15 @@ while prev < 209:
         num = int(num, 16)
         count+=1
         if prev+1 is not num:
-            while prev is not num:
+            while prev+1 is not num:
                 prev += 1
                 missing += str(prev) + ', '
+        prev = num
         print('Packet: ' + str(pakcet_hex))
         print('Packet no. ' + str(count))
         print('Packet data number: ' + str(num))
+        print('\n')
 
+print('Number of packets lost: ' + str(len(missing)))
 print(missing)
+
