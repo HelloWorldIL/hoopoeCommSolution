@@ -31,29 +31,29 @@ def kiss_decode(packet):
 
 count = 0
 prev = -1
-missing = ""
+missing = []
 
 while prev < 254:
     packet = sock.recv(4096)
     if packet is not None and len(packet.hex()) < 60:
         # Kiss Decode
         packet = kiss_decode(packet)
-        pakcet_hex = packet.hex()
 
         # Get the Number in the data field
-        num = pakcet_hex[-4]+pakcet_hex[-3]
-        num = int(num, 16)
+        num = packet[-2]
         count+=1
         if prev+1 is not num:
             while prev+1 is not num:
                 prev += 1
-                missing += str(prev) + ', '
+                missing.append(prev)
         prev = num
-        print('Packet: ' + str(pakcet_hex))
+        print('Packet: ' + str(packet.hex()))
         print('Packet no. ' + str(count))
         print('Packet data number: ' + str(num))
         print('\n')
 
 print('Number of packets lost: ' + str(len(missing)))
-print(missing)
+for miss in missing:
+    print(str(miss) + ', ', end='')
 
+print()
