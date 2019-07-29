@@ -218,7 +218,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>9600*10</value>
+      <value>9600*20</value>
     </param>
   </block>
   <block>
@@ -437,7 +437,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1288, 136)</value>
+      <value>(1320, 136)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -712,7 +712,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1496, 60)</value>
+      <value>(1528, 60)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -914,7 +914,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>cutoff_freq</key>
-      <value>((max_cfo+baudrate)/2)</value>
+      <value>((max_cfo+baudrate)/1.5)</value>
     </param>
     <param>
       <key>decim</key>
@@ -922,7 +922,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>2</value>
+      <value>1</value>
     </param>
     <param>
       <key>type</key>
@@ -962,7 +962,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>width</key>
-      <value>baudrate / 10.0</value>
+      <value>baudrate/2</value>
     </param>
     <param>
       <key>win</key>
@@ -989,7 +989,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>cutoff_freq</key>
-      <value>((max_cfo+baudrate)/2)</value>
+      <value>((max_cfo+baudrate)/1.5)</value>
     </param>
     <param>
       <key>decim</key>
@@ -1037,82 +1037,7 @@ Used in filtering.</value>
     </param>
     <param>
       <key>width</key>
-      <value>baudrate / 10.0</value>
-    </param>
-    <param>
-      <key>win</key>
-      <value>firdes.WIN_HAMMING</value>
-    </param>
-  </block>
-  <block>
-    <key>low_pass_filter</key>
-    <param>
-      <key>beta</key>
-      <value>6.76</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>cutoff_freq</key>
-      <value>((1.0 + excess_bw) * baudrate/2.0) + min(baudrate, abs(500*1.2))</value>
-    </param>
-    <param>
-      <key>decim</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>interp_fir_filter_ccf</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(1104, 116)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>gain</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>low_pass_filter_0_0_0</value>
-    </param>
-    <param>
-      <key>interp</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>samp_rate</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>width</key>
-      <value>baudrate / 10.0</value>
+      <value>baudrate/2</value>
     </param>
     <param>
       <key>win</key>
@@ -1542,6 +1467,77 @@ reception performance.</value>
     </param>
   </block>
   <block>
+    <key>root_raised_cosine_filter</key>
+    <param>
+      <key>alpha</key>
+      <value>excess_bw</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>decim</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>fir_filter_ccf</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1104, 124)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>gain</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>root_raised_cosine_filter_0_0</value>
+    </param>
+    <param>
+      <key>interp</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>ntaps</key>
+      <value>512</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>sym_rate</key>
+      <value>baudrate+1000</value>
+    </param>
+  </block>
+  <block>
     <key>satellites_check_address</key>
     <param>
       <key>address</key>
@@ -1739,13 +1735,13 @@ reception performance.</value>
   </connection>
   <connection>
     <source_block_id>digital_fll_band_edge_cc_0</source_block_id>
-    <sink_block_id>low_pass_filter_0_0_0</sink_block_id>
+    <sink_block_id>pad_sink_0_0_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>digital_fll_band_edge_cc_0</source_block_id>
-    <sink_block_id>pad_sink_0_0_0_0</sink_block_id>
+    <sink_block_id>root_raised_cosine_filter_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1798,12 +1794,6 @@ reception performance.</value>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>low_pass_filter_0_0_0</source_block_id>
-    <sink_block_id>digital_costas_loop_cc_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>pad_source_0</source_block_id>
     <sink_block_id>pfb_arb_resampler_xxx_0</sink_block_id>
     <source_key>0</source_key>
@@ -1818,6 +1808,12 @@ reception performance.</value>
   <connection>
     <source_block_id>rms_agc_0</source_block_id>
     <sink_block_id>low_pass_filter_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>root_raised_cosine_filter_0_0</source_block_id>
+    <sink_block_id>digital_costas_loop_cc_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
