@@ -1,13 +1,33 @@
 import socket
+import multiprocessing
+import time
 import collections
+import argparse
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Command Line Arguments
+parser = argparse.ArgumentParser(
+    description='Counts number and indices of recieved packets (expected AX.25 packet kiss encoded).')
+parser.add_argument('--len', action='store', dest='len', type=int,
+                    help='Expected Length of a packet (Used to ignore ack packet).', default=23)
+parser.add_argument('--num', action='store', dest='num', type=int,
+                    help='Number of packets (0 to detect burst end automaticly).', default=0)
+parser.add_argument('--time', action='store', dest='time', type=int,
+                    help='(seconds) Timeout used to detect burst end (only if num is 0).', default=3)
+parser.add_argument('--simple', action='store', dest='simple',
+                    type=bool, help='Only count the number of packets', default=False)
+parser.add_argument('--size', action='store', dest='size',
+                    type=int, help='Size of counter (number of bytes)', default=2)
+# Network arguments
+parser.add_argument('--host', action='store', dest='host', type=str,
+                    help='Packet source connection host', default='localhost')
+parser.add_argument('--port', action='store', dest='port',
+                    type=int, help='Packet source connection port', default=52002)
 
-address = ('localhost', 52002)
+args = parser.parse_args()
 
-sock.connect(address)
 
 def kiss_decode(packet):
+    ''' Packet kiss decode (https://en.wikipedia.org/wiki/KISS_(TNC)) '''
     FEND = 0xc0
     FESC = 0xdb
     TFEND = 0xdc
@@ -29,31 +49,77 @@ def kiss_decode(packet):
             out.append(c)
     return bytearray(out)
 
+
+def getPacketIndex(packet):
+    ''' Get the packet index (Expected in the last positions in the data field) '''
+    size = args.size
+    field = packet[-size:-1]
+    return int.from_bytes(field, 'little')
+
+
+# Global variables
 count = 0
-prev = -1
 missing = []
 
-while prev < 254:
+index = 0
+prev = 0
+
+def receivePacket():
+    global sock
+    global count
+    global missing
+    global prev
+    global index
+
     packet = sock.recv(4096)
-    if packet is not None and len(packet.hex()) < 60:
+    # Check if packet is at correct size
+    if len(packet) is args.len:
+        count += 1
         # Kiss Decode
         packet = kiss_decode(packet)
+        # Get packet index
+        index = getPacketIndex(packet)
 
-        # Get the Number in the data field
-        num = packet[-2]
-        count+=1
-        if prev+1 is not num:
-            while prev+1 is not num:
-                prev += 1
-                missing.append(prev)
-        prev = num
-        print('Packet: ' + str(packet.hex()))
-        print('Packet no. ' + str(count))
-        print('Packet data number: ' + str(num))
+        # Add missing packets indices to missing list
+        while prev is not index:
+            prev += 1
+            missing.append(prev)
+        prev = index
+
+        # Print information
+        print(f'Packet: {packet.hex()}')
+        print(f'Packet count is {count}')
+        print(f'Packet index is {index}')
+        print(f'Packet loss rate is {1-len(missing)/count}')
         print('\n')
 
-print('Number of packets lost: ' + str(len(missing)))
-for miss in missing:
-    print(str(miss) + ', ', end='')
+if __name__ == '__main__':
 
-print()
+    # Setup socket connection
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    address = (args.host, args.port)
+    sock.connect(address)
+
+
+    while True:
+        if args.num is 0:
+            p = multiprocessing.Process(target=receivePacket)
+            p.start()
+            if count >= 1:
+                p.join(args.time)
+                if p.is_alive():
+                    p.terminate()
+                    p.join()
+        else:
+            receivePacket()
+            if args.len is index:
+                # Packet index is number of packets
+                break
+
+    # Print information
+    print(f'Number of packets lost is {len(missing)} (received {count})')
+    print(f'Packet loss rate is {1-len(missing)/count}')
+
+    for lostPacket in missing:
+        print(f'{lostPacket}, ', end='')
+    print()
