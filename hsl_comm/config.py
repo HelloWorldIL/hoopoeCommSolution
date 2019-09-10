@@ -22,7 +22,7 @@ class Config(object):
         self.tleUrl = tleUrl
 
     @classmethod
-    def from_file(cls, config_file=os.path.expanduser('~')+'/.hslCommSolution/config.ini'):
+    def from_file(cls, config_file=os.path.expanduser('~')+'/.config/hsl/config.ini'):
         configParser = ConfigParser()
         configParser.read(config_file)
 
@@ -46,22 +46,18 @@ class Config(object):
             configParser.get('Rotator', 'device')
         )
         rxGain = GainConfig(
-            configParser.get('SDR', 'rx_rfGain'),
-            configParser.get('SDR', 'rx_ifGain', fallback=None),
-            configParser.get('SDR', 'rx_bbGain', fallback=None)
+            configParser.get('SDR', 'rxGain'),
         )
         txGain = None
-        if configParser.get('SDR', 'tx_rfGain', fallback=None):
+        if configParser.get('SDR', 'txGain', fallback=None):
             txGain = GainConfig(
-                configParser.get('SDR', 'tx_rfGain'),
-                configParser.get('SDR', 'tx_ifGain', fallback=None),
-                configParser.get('SDR', 'tx_bbGain', fallback=None)
+                configParser.get('SDR', 'txGain')
             )
         sdr = SDRConfig(
             configParser.get('SDR', 'name'),
             configParser.get('SDR', 'samp_rate'),
             rxGain,
-            txGain=txGain
+            txGain
         )
         tleUrl = configParser.get('TLE', 'url')
         return cls(
