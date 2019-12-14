@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+
+import hsl_comm
+import socket
+import time
+# import argparse
+
+# # parser = argparse.ArgumentParser(description='Doppler correction and rotator control script for HSL (Duchifat).')
+# # parser.add_argument('rotator')
+
+config =  hsl_comm.Config.from_file()
+
+predict = hsl_comm.PredictSolution(
+    config.Satellite,
+    config.Station,
+    config.Doppler,
+    config.Rotator,
+    config.tleUrl
+)
+
+time.sleep(15)
+predict.Start(rotator=False, verbose=True)

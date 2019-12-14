@@ -8,4 +8,5 @@ setup(name='hsl_comm',
       author_email='idobronfeld@gmail.com',
       license='MIT',
       packages=['hsl_comm'],
+      scripts=['scripts/hsl_doppler_rotator_control'],
       zip_safe=False)
