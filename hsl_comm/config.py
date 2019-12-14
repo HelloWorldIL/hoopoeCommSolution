@@ -22,7 +22,7 @@ class Config(object):
         self.tleUrl = tleUrl
 
     @classmethod
-    def from_file(cls, config_file=os.path.expanduser('~')+'/.hslCommSolution/config.ini'):
+    def from_file(cls, config_file=os.path.expanduser('~')+'/.config/hsl/config.ini'):
         configParser = ConfigParser()
         configParser.read(config_file)
 
