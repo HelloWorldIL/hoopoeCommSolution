@@ -17,17 +17,16 @@ class Predict(object):
     def __init__(self, sat, station):
         self.sat = sat
         self.station = station
+        self.timescale = load.timescale(builtin=True)
 
     def getPassTimes(self, startTime, endTime, seconds=False, startEnd=False):
-        ts = load.timescale()
-
         tDateTime = startTime.utc_datetime()
         # Differance between start and end time
         d = endTime.utc_datetime()-startTime.utc_datetime()
         dSec = int(d.total_seconds())
         dMin = int(d.total_seconds()/60)
         # Gets time array between start and end time
-        t = ts.utc(tDateTime.year, tDateTime.month, tDateTime.day, tDateTime.hour,
+        t = self.timescale.utc(tDateTime.year, tDateTime.month, tDateTime.day, tDateTime.hour,
                    tDateTime.minute if seconds else range(tDateTime.minute, tDateTime.minute+dMin), tDateTime.second if not seconds else range(tDateTime.second, tDateTime.second+dSec))
         orbit = (self.sat-self.station).at(t)
         alt = orbit.altaz()[0]
@@ -44,13 +43,11 @@ class Predict(object):
             return t[boundaries]
 
     def getNextPasses(self, startTime, endTime, withData=False):
-        ts = load.timescale()
-
         course = self.getPassTimes(startTime, endTime, startEnd=True)
         passes = []
         for times in course:
-            start = ts.utc(times[0].utc_datetime()-timedelta(minutes=1))
-            end = ts.utc(times[1].utc_datetime()+timedelta(minutes=1))
+            start = self.timescale.utc(times[0].utc_datetime()-timedelta(minutes=1))
+            end = self.timescale.utc(times[1].utc_datetime()+timedelta(minutes=1))
             data = self.getPassTimes(start, end, seconds=True)
             # print(data)
             maxEl = self.getAzEl(data)[1].max()
@@ -63,7 +60,7 @@ class Predict(object):
 
     def getDopplerFreq(self, freq, t):
         C = 299792458
-        t1 = load.timescale().utc(t.utc_datetime()+timedelta(seconds=1))
+        t1 = self.timescale.utc(t.utc_datetime()+timedelta(seconds=1))
 
         diff = (self.sat - self.station).at(t)
         diff1 = (self.sat - self.station).at(t1)
@@ -146,6 +143,8 @@ class PredictSolution(object):
         self.rxFreq = satellite.rxFreq
         self.txFreq = satellite.txFreq
 
+        self.timescale = load.timescale(builtin=True)
+
     def Connect(self, rotator=True):
         self.dopplerControllerRX.Connect()
         if self.dopplerControllerTX is not None:
@@ -160,6 +159,7 @@ class PredictSolution(object):
         if verbose:
             print("Current RX freq: " + str(rxFreq))
             print("Current TX freq: " + str(txFreq))
+            print()
         self.dopplerControllerRX.Write(rxFreq)
         if self.dopplerControllerTX is not None:
             self.dopplerControllerTX.Write(txFreq)
@@ -174,7 +174,7 @@ class PredictSolution(object):
         if not self.isConnected:
             self.Connect(rotator)
         while True:
-            t = load.timescale().utc(datetime.utcnow().replace(tzinfo=utc))
+            t = self.timescale.utc(datetime.utcnow().replace(tzinfo=utc))
             self.sendDoppler(t, verbose)
             if rotator:
                 self.sendRotator(t)
